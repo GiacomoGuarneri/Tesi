@@ -92,7 +92,7 @@ public class JsonParser {
 			e.printStackTrace();
 		}
     }
-    
+
     /**
      * This method is responsible of getting out the wfp info and creating the corresponding wfp objects
      * @param array is the json array of wfp

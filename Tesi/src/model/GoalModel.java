@@ -6,41 +6,41 @@ import java.util.ArrayList;
  * This class represents the entire goal model and the components in it
  */
 public class GoalModel {
-	private ArrayList<GmComponent> wfpArray;
-	private ArrayList<GmComponent> smArray;
-	private ArrayList<GmComponent> assetArray;
+	private ArrayList<GmWfp> wfpArray;
+	private ArrayList<GmSecurityMeasure> smArray;
+	private ArrayList<GmAsset> assetArray;
 	private ArrayList<GmRelationship> relationshipsArray;
 	private ArrayList<GmActor> actorsArray;
 	
 	public GoalModel() {
-		this.wfpArray = new ArrayList<GmComponent>();
-		this.smArray = new ArrayList<GmComponent>();
-		this.assetArray = new ArrayList<GmComponent>();
+		this.wfpArray = new ArrayList<GmWfp>();
+		this.smArray = new ArrayList<GmSecurityMeasure>();
+		this.assetArray = new ArrayList<GmAsset>();
 		this.relationshipsArray = new ArrayList<GmRelationship>();
 		this.actorsArray = new ArrayList<GmActor>();
 	}
 	
- 	public ArrayList<GmComponent> getWfpArray() {
+ 	public ArrayList<GmWfp> getWfpArray() {
 		return wfpArray;
 	}
 	
-	public void setWfpArray(ArrayList<GmComponent> wfpArray) {
+	public void setWfpArray(ArrayList<GmWfp> wfpArray) {
 		this.wfpArray = wfpArray;
 	}
 
-	public ArrayList<GmComponent> getSmArray() {
+	public ArrayList<GmSecurityMeasure> getSmArray() {
 		return smArray;
 	}
 
-	public void setSmArray(ArrayList<GmComponent> smArray) {
+	public void setSmArray(ArrayList<GmSecurityMeasure> smArray) {
 		this.smArray = smArray;
 	}
 
-	public ArrayList<GmComponent> getAssetArray() {
+	public ArrayList<GmAsset> getAssetArray() {
 		return assetArray;
 	}
 
-	public void setAssetArray(ArrayList<GmComponent> assetArray) {
+	public void setAssetArray(ArrayList<GmAsset> assetArray) {
 		this.assetArray = assetArray;
 	}
 
