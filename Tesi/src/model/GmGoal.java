@@ -57,11 +57,30 @@ public class GmGoal extends GmComponent{
 	public boolean isLeaf() {
 		return this.children.size() == 0;
 	}
+
 	
 	@Override
 	public String toString() {
-		return "GmGoal [id=" + this.getId() + ", description=" + this.getDescription() + ", energyConsumption=" + this.getEnergyConsumption()
-				+ ", residualRisk=" + this.getResidualRisk() + "]";
-	}
+		//ANSI escape codes to color the output
+		final String ANSI_RESET = "\u001B[0m";
+//		final String ANSI_BLACK = "\u001B[30m";
+		final String ANSI_RED = "\u001B[31m";
+//		final String ANSI_GREEN = "\u001B[32m";
+		final String ANSI_YELLOW = "\u001B[33m";
+//		final String ANSI_BLUE = "\u001B[34m";
+//		final String ANSI_PURPLE = "\u001B[35m";
+//		final String ANSI_CYAN = "\u001B[36m";
+//		final String ANSI_WHITE = "\u001B[37m";
 		
+		return this.getDescription() + " (" + ANSI_RED + "RR:" + this.getResidualRisk() + ANSI_RESET + "," + ANSI_YELLOW + "EN:" + this.getEnergyConsumption() + ANSI_RESET + ")";
+	}
+	
+//	@Override
+//	public String toString() {
+//		return "GmGoal [id=" + this.getId() + ", description=" + this.getDescription() + ", energyConsumption=" + this.getEnergyConsumption()
+//				+ ", residualRisk=" + this.getResidualRisk() + "]";
+//	}
+	
+	
+	
 }
