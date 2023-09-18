@@ -13,6 +13,7 @@ import model.GmActor;
 import model.GmAsset;
 import model.GmDelegationRelationship;
 import model.GmEnforceRelationship;
+import model.GmGoal;
 import model.GmIsARelationship;
 import model.GmPartOfRelationship;
 import model.GmProtectRelationship;
@@ -63,6 +64,12 @@ public class JsonParser {
     		actors = (JSONArray) jsonObj.get("actors");
     		JsonParser.actorsRoutine(actors, goalModel);
     		
+    		// Sets the root node of actors which is always the first goal parsed for that actor
+    		for (GmActor actor : goalModel.getActorsArray()) {
+    			GmGoal rootToSet = actor.getGoals().get(0);
+    			actor.setRootNode(rootToSet);
+    		}
+    		
     		//debug separator
     		System.out.println("-------------------------------------------------------------------------------------------");
     		System.out.println();
@@ -79,7 +86,7 @@ public class JsonParser {
     		// Gets links jsonArray: it contains ANDlinks among goals
     		JSONArray links = new JSONArray();
     		links = (JSONArray) jsonObj.get("links");
-    		JsonParser.getLinksInfo(links);
+    		JsonParser.getLinksInfo(links, goalModel);
     		
     	} catch (FileNotFoundException e) {
 			// Auto-generated catch block
@@ -164,62 +171,47 @@ public class JsonParser {
 			goalModel.getAssetArray().add(asset);
     	}
 	}
-    
-    /**
-     * This method is responsible of getting out the actor info and creating the corresponding actor objects
-     * @param object is the actor json object
-     * @param goalModel
-     */
-    private static void getActorInfo (JSONObject object, GoalModel goalModel) {
-    	//Get actor id
-        String actorId = (String) object.get("id");    
-        System.out.println("actorId: " + actorId);    			       
-        //Get actor text
-        String actorText = (String) object.get("text");  
-        System.out.println("actorText: " + actorText);
-		System.out.println();
-		
-		GmActor actor = new GmActor(actorId, actorText);
-		goalModel.getActorsArray().add(actor);
-    }
-    
+        
 	/**
 	 * This method is responsible of getting out the goal info and creating the corresponding goal objects
 	 * @param object is the goal json object
 	 * @param goalModel
+	 * @param actor is the actor in whose scope we are in
 	 */
-    private static void getGoalInfo (JSONObject object, GoalModel goalModel) {
-    	//Get element id
-        String elementId = (String) object.get("id");    
-        System.out.println("componentId: " + elementId);    			       
-        //Get element text
-        String elementText = (String) object.get("text");  
-        System.out.println("componentText: " + elementText);    			         
-        //Get element type
-        String elementType = (String) object.get("type");  
-        System.out.println("componentType: " + elementType);
+    private static void getGoalInfo (JSONObject object, GoalModel goalModel, GmActor actor) {
+    	//Get goal id
+        String goalId = (String) object.get("id");    
+        System.out.println("goalId: " + goalId);    			       
+        //Get goal text
+        String goalText = (String) object.get("text");  
+        System.out.println("goalText: " + goalText);
 		System.out.println();
 		
-		//TODO element creation with GmGoal constructor
+		GmGoal goal = new GmGoal(goalId, goalText);
+		for(GmActor a : goalModel.getActorsArray()) {
+			if(a.getId() != null && a.getId().equals(actor.getId()))
+				a.getGoals().add(goal);
+		}
     }
     
     /**
      * This method receive an array of goals and it gets all goals info by invoking getGoalInfo method
      * @param object is the json array of goals
      * @param goalModel
+     * @param actor is the actor in whose scope we are in
      */
-    private static void getGoalInfoFromArray (JSONObject object, GoalModel goalModel) {
+    private static void getGoalInfoFromActor (JSONObject object, GoalModel goalModel, GmActor actor) {
     	JSONArray tempArray = new JSONArray();
 		tempArray = (JSONArray) object.get("nodes");
 		for (int j=0; j < tempArray.size(); j++) {
 			JSONObject element = new JSONObject();
 			element = (JSONObject) tempArray.get(j);
-			JsonParser.getGoalInfo(element, goalModel);
+			JsonParser.getGoalInfo(element, goalModel, actor);
 		}
     }
     
     /**
-     * This method is responsible of getting out the asset info and relative goals info by invoking the specific support functions
+     * This method is responsible of getting out the asset info and relative goals info by invoking the specific support function
      * @param actors is the json array of actors
      * @param goalModel
      */
@@ -229,18 +221,18 @@ public class JsonParser {
 			JSONObject temp = new JSONObject();
 			temp = (JSONObject) actors.get(i);
 			
-			// I check the type to know if it is an actor or it is an array of wfp/sm/assets
-			String id = (String) temp.get("type");
+			//Get actor id
+	        String actorId = (String) temp.get("id");    
+	        System.out.println("actorId: " + actorId);    			       
+	        //Get actor text
+	        String actorText = (String) temp.get("text");  
+	        System.out.println("actorText: " + actorText);
+			System.out.println();
 			
-			if ( id == null) {    				
-				
-				JsonParser.getGoalInfoFromArray(temp, goalModel);   
-				
-			} else if ( id.equals(new String("istar.Actor")) ) { //Procedure for actors    
-				
-				JsonParser.getActorInfo(temp, goalModel);    				
-				JsonParser.getGoalInfoFromArray(temp, goalModel);    				
-			}
+			GmActor actor = new GmActor(actorId, actorText);
+			goalModel.getActorsArray().add(actor);
+			
+			JsonParser.getGoalInfoFromActor(temp, goalModel, actor);    				
 			
 		}
     }
@@ -302,7 +294,7 @@ public class JsonParser {
      * This method is responsible of getting out the AND-links info and organizing the goal in the respective actor goal-tree
      * @param array is the json array of links
      */
-    private static void getLinksInfo (JSONArray array) {
+    private static void getLinksInfo (JSONArray array, GoalModel goalModel) {
     	for (int i=0; i < array.size(); i++) {
         	
     		JSONObject object = new JSONObject();
@@ -322,7 +314,14 @@ public class JsonParser {
 	        System.out.println("linkTarget: " + linkTarget);
 			System.out.println();
 			
-			//TODO adjust links within goals children and parents
+			//Adjust links within goals children and parents
+			for (GmActor actor : goalModel.getActorsArray()) {
+				GmGoal parentGoal = actor.getSpecificGoal(linkTarget);
+				GmGoal childGoal = actor.getSpecificGoal(linkSource);
+				if (parentGoal != null && childGoal != null) {
+					parentGoal.addChild(childGoal);
+				}
+			}
     	}
     }
 }

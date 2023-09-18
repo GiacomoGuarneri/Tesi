@@ -14,17 +14,11 @@ public class GmGoal extends GmComponent{
 		super(id, description);
 	}
 	
-	public GmGoal(String id, String description, GmGoal parent) {
-		super(id, description);
-		this.parent = parent;
-	}
-
 	public GmGoal getParent() {
 		return parent;
 	}
 
 	public void setParent(GmGoal parent) {
-		parent.addChild(this);
 		this.parent = parent;
 	}
 	
@@ -35,30 +29,19 @@ public class GmGoal extends GmComponent{
 		this.parent = null;
 	}	
 	
-	public List<GmGoal> getChildren() {
-		return children;
-	}
-	
-	/**
-	 * This method first creates a sub-goal and then adds it as child
-	 * @param id is the id of the sub-goal
-	 * @param description is the description of the sub-goal
-	 */
-	public void addChild(String id, String description) {
-		GmGoal child = new GmGoal(id, description);
-		child.setParent(this);
-		this.children.add(child);
-	}
-	
 	/**
 	 * This method adds an already created sub-goal as child
 	 * @param child is the sub-goal to append
 	 */
 	public void addChild(GmGoal child) {
-		child.setParent(this);
 		this.children.add(child);
+		child.setParent(this);
 	}
 	
+	public List<GmGoal> getChildren() {
+		return children;
+	}
+		
 	/**
 	 * This method says is the current goal is a root
 	 * @return
@@ -73,6 +56,12 @@ public class GmGoal extends GmComponent{
 	 */
 	public boolean isLeaf() {
 		return this.children.size() == 0;
+	}
+	
+	@Override
+	public String toString() {
+		return "GmGoal [id=" + this.getId() + ", description=" + this.getDescription() + ", energyConsumption=" + this.getEnergyConsumption()
+				+ ", residualRisk=" + this.getResidualRisk() + "]";
 	}
 		
 }

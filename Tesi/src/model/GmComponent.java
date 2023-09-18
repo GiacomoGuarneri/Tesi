@@ -46,9 +46,4 @@ public class GmComponent {
 		this.residualRisk = residualRisk;
 	}
 
-	@Override
-	public String toString() {
-		return "GmComponent [id=" + id + ", description=" + description + ", energyConsumption=" + energyConsumption
-				+ ", residualRisk=" + residualRisk + "]";
-	}
 }
