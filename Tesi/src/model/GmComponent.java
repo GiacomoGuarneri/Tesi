@@ -37,6 +37,27 @@ public class GmComponent {
 	public void setEnergyConsumption(int energyConsumption) {
 		this.energyConsumption = energyConsumption;
 	}
+	
+	/**
+	 * Updates energyConsumption by arbitrary value
+	 * @param increment
+	 */
+	public void updateEnergyConsumption(int increment) {
+		this.energyConsumption = this.energyConsumption + increment;
+	}
+	
+	/**
+	 * Updates residualRisk by arbitrary value
+	 * @param decrement
+	 */
+	public void updateResidualRisk(int decrement) {
+		//residual risk CANNOT go under 0
+		if (this.residualRisk - decrement < 0) {
+			this.residualRisk = 0;
+		} else {
+			this.residualRisk = this.residualRisk - decrement;
+		}
+	}
 
 	public int getResidualRisk() {
 		return residualRisk;

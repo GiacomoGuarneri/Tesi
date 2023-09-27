@@ -71,8 +71,8 @@ public class JsonParser {
     		}
     		
     		//debug separator
-    		System.out.println("-------------------------------------------------------------------------------------------");
-    		System.out.println();
+    		//System.out.println("-------------------------------------------------------------------------------------------");
+    		//System.out.println();
     		
     		// Gets relationships jsonArray: it contains relationships PART-OF, PROTECT, ENFORCE, IS-A
     		JSONArray relationships = new JSONArray();
@@ -80,8 +80,8 @@ public class JsonParser {
     		JsonParser.getRelationshipInfo(relationships, goalModel);
     		
     		//debug separator
-    		System.out.println("-------------------------------------------------------------------------------------------");
-    		System.out.println();
+    		//System.out.println("-------------------------------------------------------------------------------------------");
+    		//System.out.println();
     		
     		// Gets links jsonArray: it contains ANDlinks among goals
     		JSONArray links = new JSONArray();
@@ -113,11 +113,11 @@ public class JsonParser {
     		
 	    	//Get wfp id
 	        String wfpId = (String) object.get("id");    
-	        System.out.println("wfpId: " + wfpId);    			       
+	        //System.out.println("wfpId: " + wfpId);    			       
 	        //Get wfp text
 	        String wfpText = (String) object.get("text");  
-	        System.out.println("wfpText: " + wfpText);
-			System.out.println();
+	        //System.out.println("wfpText: " + wfpText);
+			//System.out.println();
 			
 			GmWfp wfp = new GmWfp(wfpId, wfpText);
 			goalModel.getWfpArray().add(wfp);
@@ -137,11 +137,11 @@ public class JsonParser {
     		
 	    	//Get sm id
 	        String smId = (String) object.get("id");    
-	        System.out.println("smId: " + smId);    			       
+	        //System.out.println("smId: " + smId);    			       
 	        //Get sm text
 	        String smText = (String) object.get("text");  
-	        System.out.println("smText: " + smText);
-			System.out.println();
+	        //System.out.println("smText: " + smText);
+			//System.out.println();
 			
 			GmSecurityMeasure sm = new GmSecurityMeasure(smId, smText);
 			goalModel.getSmArray().add(sm);
@@ -161,11 +161,11 @@ public class JsonParser {
     		
 	    	//Get asset id
 	        String assetId = (String) object.get("id");    
-	        System.out.println("assetId: " + assetId);    			       
+	        //System.out.println("assetId: " + assetId);    			       
 	        //Get asset text
 	        String assetText = (String) object.get("text");  
-	        System.out.println("assetText: " + assetText);
-			System.out.println();
+	        //System.out.println("assetText: " + assetText);
+			//System.out.println();
 			
 			GmAsset asset = new GmAsset(assetId, assetText);
 			goalModel.getAssetArray().add(asset);
@@ -181,11 +181,11 @@ public class JsonParser {
     private static void getGoalInfo (JSONObject object, GoalModel goalModel, GmActor actor) {
     	//Get goal id
         String goalId = (String) object.get("id");    
-        System.out.println("goalId: " + goalId);    			       
+        //System.out.println("goalId: " + goalId);    			       
         //Get goal text
         String goalText = (String) object.get("text");  
-        System.out.println("goalText: " + goalText);
-		System.out.println();
+        //System.out.println("goalText: " + goalText);
+		//System.out.println();
 		
 		GmGoal goal = new GmGoal(goalId, goalText);
 		for(GmActor a : goalModel.getActorsArray()) {
@@ -223,11 +223,11 @@ public class JsonParser {
 			
 			//Get actor id
 	        String actorId = (String) temp.get("id");    
-	        System.out.println("actorId: " + actorId);    			       
+	        //System.out.println("actorId: " + actorId);    			       
 	        //Get actor text
 	        String actorText = (String) temp.get("text");  
-	        System.out.println("actorText: " + actorText);
-			System.out.println();
+	        //System.out.println("actorText: " + actorText);
+			//System.out.println();
 			
 			GmActor actor = new GmActor(actorId, actorText);
 			goalModel.getActorsArray().add(actor);
@@ -250,20 +250,20 @@ public class JsonParser {
     		
 	    	//Get relationship id
 	        String relationshipId = (String) object.get("id");    
-	        System.out.println("relationshipId: " + relationshipId);    			       
-	        //Get relationship text
-	        String relationshipText = (String) object.get("text");  
-	        System.out.println("relationshipText: " + relationshipText);    			         
+	        //System.out.println("relationshipId: " + relationshipId);    			       
+	        //Get relationship text ---------------------------------------------> not needed!
+	        //String relationshipText = (String) object.get("text");  
+	        //System.out.println("relationshipText: " + relationshipText);    			         
 	        //Get relationship type
 	        String relationshipType = (String) object.get("type");  
-	        System.out.println("relationshipType: " + relationshipType);
+	        //System.out.println("relationshipType: " + relationshipType);
 	        //Get relationship source
 	        String relationshipSource = (String) object.get("source");  
-	        System.out.println("relationshipSource: " + relationshipSource);
+	        //System.out.println("relationshipSource: " + relationshipSource);
 	        //Get relationship target
 	        String relationshipTarget = (String) object.get("target");  
-	        System.out.println("relationshipTarget: " + relationshipTarget);
-			System.out.println();
+	        //System.out.println("relationshipTarget: " + relationshipTarget);
+			//System.out.println();
 			
 			GmRelationship relationship;
 			switch(relationshipType) {
@@ -300,19 +300,19 @@ public class JsonParser {
     		JSONObject object = new JSONObject();
 			object = (JSONObject) array.get(i);
     		
-	    	//Get link id
-	        String linkId = (String) object.get("id");    
-	        System.out.println("linkId: " + linkId); 
+	    	//Get link id --------------------------------------------------> not needed!
+	        //String linkId = (String) object.get("id");    
+	        //System.out.println("linkId: " + linkId); 
 	        
 	        //REMEMBER that in iStar when we specify an AND-link the target is the parent in the tree structure and the source is the child
 	        
 	        //Get link source
 	        String linkSource = (String) object.get("source");  
-	        System.out.println("linkSource: " + linkSource);
+	        //System.out.println("linkSource: " + linkSource);
 	        //Get link target
 	        String linkTarget = (String) object.get("target");  
-	        System.out.println("linkTarget: " + linkTarget);
-			System.out.println();
+	        //System.out.println("linkTarget: " + linkTarget);
+			//System.out.println();
 			
 			//Adjust links within goals children and parents
 			for (GmActor actor : goalModel.getActorsArray()) {

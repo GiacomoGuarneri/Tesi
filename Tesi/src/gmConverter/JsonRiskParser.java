@@ -78,11 +78,11 @@ public class JsonRiskParser {
 			
 			//Get wfp id
 			String wfpId = (String) object.get("id");
-			System.out.println("wfpId: " + wfpId); 
+			//System.out.println("wfpId: " + wfpId); 
 			//Get wfp rmi
 			String wfpRmi = (String) object.get("rmi");
-			System.out.println("wfpRmi: " + wfpRmi);
-			System.out.println();
+			//System.out.println("wfpRmi: " + wfpRmi);
+			//System.out.println();
 			
 			for(GmWfp element : goalModel.getWfpArray()) {
 				if(element.getId() != null && element.getId().equals(wfpId)) {
@@ -106,11 +106,11 @@ public class JsonRiskParser {
 			
 			//Get sm id
 			String smId = (String) object.get("id");
-			System.out.println("smId: " + smId); 
+			//System.out.println("smId: " + smId); 
 			//Get sm rmi
 			String smRmi = (String) object.get("rmi");
-			System.out.println("smRmi: " + smRmi);
-			System.out.println();
+			//System.out.println("smRmi: " + smRmi);
+			//System.out.println();
 			
 			for(GmSecurityMeasure element : goalModel.getSmArray()) {
 				if(element.getId() != null && element.getId().equals(smId)) {
@@ -134,11 +134,11 @@ public class JsonRiskParser {
 			
 			//Get asset id
 			String assetId = (String) object.get("id");
-			System.out.println("assetId: " + assetId); 
+			//System.out.println("assetId: " + assetId); 
 			//Get asset ir
 			String assetIr = (String) object.get("ir");
-			System.out.println("assetIr: " + assetIr);
-			System.out.println();
+			//System.out.println("assetIr: " + assetIr);
+			//System.out.println();
 			
 			for(GmAsset element : goalModel.getAssetArray()) {
 				if(element.getId() != null && element.getId().equals(assetId)) {

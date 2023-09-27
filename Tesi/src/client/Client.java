@@ -7,9 +7,12 @@ import gmConverter.JsonParser;
 import gmConverter.JsonRiskParser;
 import gmConverter.KnowledgeBaseSerializer;
 import gmConverter.XmlParser;
+import gmPropagation.EnergyPropagation;
+import gmPropagation.RiskPropagation;
 import model.GmActor;
 import model.GmGoal;
 import model.GmKnowledgeBase;
+import model.GmSecurityMeasure;
 import model.GoalModel;
 
 /**
@@ -26,11 +29,13 @@ public class Client {
 		GmKnowledgeBase knowledgeBase = new GmKnowledgeBase();
 		ConflictChecker conflictChecker = new ConflictChecker();
 		KnowledgeBaseSerializer kbSerializer = new KnowledgeBaseSerializer();
+		EnergyPropagation enPropagator = new EnergyPropagation();
+		RiskPropagation riskPropagator = new RiskPropagation();
 		
 		jsonParser.start(goalModel);
 		
-		System.out.println("-------------------------RISK-----------------------------------");
-		System.out.println();
+		//System.out.println("-------------------------RISK-----------------------------------");
+		//System.out.println();
 		
 		jsonRiskParser.start(goalModel);
 		
@@ -44,13 +49,8 @@ public class Client {
 		System.out.println("--------------------------------GOAL MODEL ACTORS--------------------------------------");
 		System.out.println("---------------------------------------------------------------------------------------");
 		System.out.println();	
-		
-		Function<GmGoal, List<GmGoal>> getChildrenFunc = node -> node.getChildren();
-		for (GmActor actor : goalModel.getActorsArray()) {
-			System.out.println(actor.toString());
-			printTree("", actor.getRootNode(), getChildrenFunc, true);
-			System.out.println();
-		}
+				
+		printModel(goalModel);
 		
 		System.out.println("---------------------------------------------------------------------------------------");
 		System.out.println("-----------------------------------KNOWLEDGE BASE--------------------------------------");
@@ -67,6 +67,38 @@ public class Client {
 		
 		conflictChecker.start(goalModel, knowledgeBase);
 		
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("-----------------------------------ENERGY PROPAGATION----------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();	
+		
+		for (GmSecurityMeasure sm : goalModel.getSmArray()) {
+			sm.setEnergyConsumption(7);
+		}
+		enPropagator.startPropagation(goalModel);
+		printModel(goalModel);
+		
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("-------------------------------------RISK PROPAGATION----------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();	
+		
+		riskPropagator.startPropagation(goalModel);
+		printModel(goalModel);
+		
+	}
+	
+	/**
+	 * Prints all the goal model actors in the model
+	 * @param goalModel
+	 */
+	private static void printModel(GoalModel goalModel) {
+		Function<GmGoal, List<GmGoal>> getChildrenFunc = node -> node.getChildren();
+		for (GmActor actor : goalModel.getActorsArray()) {
+			System.out.println(actor.toString());
+			printTree("", actor.getRootNode(), getChildrenFunc, true);
+			System.out.println();
+		}
 	}
 	
 	/**

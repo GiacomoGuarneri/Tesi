@@ -57,7 +57,6 @@ public class GmGoal extends GmComponent{
 	public boolean isLeaf() {
 		return this.children.size() == 0;
 	}
-
 	
 	@Override
 	public String toString() {
