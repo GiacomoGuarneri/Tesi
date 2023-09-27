@@ -5,9 +5,11 @@ import java.util.function.Function;
 
 import gmConverter.JsonParser;
 import gmConverter.JsonRiskParser;
+import gmConverter.KnowledgeBaseSerializer;
 import gmConverter.XmlParser;
 import model.GmActor;
 import model.GmGoal;
+import model.GmKnowledgeBase;
 import model.GoalModel;
 
 /**
@@ -21,6 +23,9 @@ public class Client {
 		JsonParser jsonParser = new JsonParser();
 		JsonRiskParser jsonRiskParser = new JsonRiskParser();
 		XmlParser xmlParser = new XmlParser();
+		GmKnowledgeBase knowledgeBase = new GmKnowledgeBase();
+		ConflictChecker conflictChecker = new ConflictChecker();
+		KnowledgeBaseSerializer kbSerializer = new KnowledgeBaseSerializer();
 		
 		jsonParser.start(goalModel);
 		
@@ -47,6 +52,21 @@ public class Client {
 			System.out.println();
 		}
 		
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("-----------------------------------KNOWLEDGE BASE--------------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();	
+		
+		knowledgeBase.putEntry("AES", "wfp1", null);
+		knowledgeBase.putEntry("AES", "wfp2", null);
+		
+		kbSerializer.printKB(knowledgeBase);
+		
+		//kbSerializer.serialize("serializedKB", knowledgeBase);
+		//kbSerializer.deserialize("serializedKB", knowledgeBase);
+		
+		conflictChecker.start(goalModel, knowledgeBase);
+		
 	}
 	
 	/**
@@ -66,5 +86,5 @@ public class Client {
 	        printTree(newPrefix, children.get(i), getChildrenFunc, i == children.size()-1);
 	    }
 	}
-
+	
 }

@@ -75,12 +75,5 @@ public class GmGoal extends GmComponent{
 		return this.getDescription() + " (" + ANSI_RED + "RR:" + this.getResidualRisk() + ANSI_RESET + "," + ANSI_YELLOW + "EN:" + this.getEnergyConsumption() + ANSI_RESET + ")";
 	}
 	
-//	@Override
-//	public String toString() {
-//		return "GmGoal [id=" + this.getId() + ", description=" + this.getDescription() + ", energyConsumption=" + this.getEnergyConsumption()
-//				+ ", residualRisk=" + this.getResidualRisk() + "]";
-//	}
-	
-	
-	
+		
 }

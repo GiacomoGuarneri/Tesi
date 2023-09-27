@@ -14,8 +14,15 @@ import model.GmSecurityMeasure;
 import model.GmWfp;
 import model.GoalModel;
 
+/**
+ * This class is responsible of parsing the json file that contains info related to risk
+ */
 public class JsonRiskParser {
 
+	/**
+	 * This method starts the parsing procedure
+	 * @param goalModel
+	 */
 	public void start(GoalModel goalModel) {
 		
 		//JSON parser object to parse read file
@@ -58,6 +65,11 @@ public class JsonRiskParser {
 		
 	}
 	
+	/**
+	 * This method is able to extract risk info about wfp
+	 * @param array is the array of wfp
+	 * @param goalModel is the goal model we need to update
+	 */
 	private static void wfpRoutine(JSONArray array, GoalModel goalModel) {
 		for (int i=0; i< array.size(); i++) {
 			
@@ -81,6 +93,11 @@ public class JsonRiskParser {
 		}
 	}
 	
+	/**
+	 * This method is able to extract risk info about security measures
+	 * @param array is the array of sm
+	 * @param goalModel is the general goal model to update
+	 */
 	private static void smRoutine(JSONArray array, GoalModel goalModel) {
 		for (int i=0; i< array.size(); i++) {
 			
@@ -104,6 +121,11 @@ public class JsonRiskParser {
 		}
 	}
 	
+	/**
+	 * This method is able to extract risk info about assets
+	 * @param array is the array of assets
+	 * @param goalModel is the general goal model to update
+	 */
 	private static void assetRoutine(JSONArray array, GoalModel goalModel) {
 		for (int i=0; i< array.size(); i++) {
 			

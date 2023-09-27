@@ -16,8 +16,14 @@ import org.xml.sax.SAXException;
 
 import model.GoalModel;
 
+/**
+ * This class parses the xml file coming from Plant Simulation
+ */
 public class XmlParser {
-
+	/**
+	 * This method starts the parsing procedure
+	 * @param goalModel is the goal model we need to update
+	 */
 	public void start(GoalModel goalModel) {
 		
 		String filePath = "C:\\Users\\user\\OneDrive\\Tesi\\SimPlant_Reports\\XMLReport.xml";
