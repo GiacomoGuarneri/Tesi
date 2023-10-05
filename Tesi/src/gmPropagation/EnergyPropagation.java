@@ -19,6 +19,9 @@ import model.GoalModel;
  */
 public class EnergyPropagation implements PropagationPolicy {
 
+	/**
+	 * This method starts the energy propagation
+	 */
 	@Override
 	public void startPropagation(GoalModel goalModel, Scanner scanner, ArrayList<String> toExclude) {
 		
@@ -36,6 +39,7 @@ public class EnergyPropagation implements PropagationPolicy {
 	/**
 	 * Propagate EN from measures participating in Enforce relationships to respective goals
 	 * @param goalModel
+	 * @param toExclude is a list of measure to exclude from propagation
 	 */
 	public static void enforcePropagation(GoalModel goalModel, ArrayList<String> toExclude) {
 		for (GmRelationship relationship : goalModel.getRelationshipsArray()) {

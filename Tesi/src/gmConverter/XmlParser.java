@@ -62,15 +62,15 @@ public class XmlParser {
 	        	}
 	        }
 	        
-	        // get <Total>
-	        NodeList total = doc.getElementsByTagName("Total");
-
-	        for (int i=0; i < total.getLength(); i++) {
-	        	Node node = total.item(i);
-	        	if (node.getNodeType() == Node.ELEMENT_NODE) {
-	        		totalRoutine(node);
-	        	}
-	        }
+//	        // get <Total>
+//	        NodeList total = doc.getElementsByTagName("Total");
+//
+//	        for (int i=0; i < total.getLength(); i++) {
+//	        	Node node = total.item(i);
+//	        	if (node.getNodeType() == Node.ELEMENT_NODE) {
+//	        		totalRoutine(node);
+//	        	}
+//	        }
 			
 		} catch (ParserConfigurationException | SAXException | IOException e) {
 			e.printStackTrace();
@@ -78,6 +78,12 @@ public class XmlParser {
 
 	}
 	
+	/**
+	 * This method actually update the consumptions of security measures
+	 * @param smName is the measure name to update
+	 * @param floatText is the text to be converted in actual float value
+	 * @param goalModel
+	 */
 	private static void updateSmConsumption(String smName, String floatText, GoalModel goalModel) {
 		//First we convert the string of consumption in an actual float
 		float consumption = floatExtractor(floatText);
@@ -98,11 +104,11 @@ public class XmlParser {
 		Element element = (Element) node;
 		
 		// get task's attribute
-		String id = element.getAttribute("xmlns");
+		//String id = element.getAttribute("xmlns");
 		
 		// get text
-		String taskName = element.getElementsByTagName("Task_name").item(0).getTextContent();
-		String description = element.getElementsByTagName("Description").item(0).getTextContent();
+//		String taskName = element.getElementsByTagName("Task_name").item(0).getTextContent();
+//		String description = element.getElementsByTagName("Description").item(0).getTextContent();
 		String energyConsumption = element.getElementsByTagName("Energy_consumption").item(0).getTextContent();
 		String securityMeasure = element.getElementsByTagName("Security_measure").item(0).getTextContent();
 		
@@ -117,26 +123,26 @@ public class XmlParser {
 //		System.out.println();
 	}
 	
-	/**
-	 * This method deals with the Total node found in the xml
-	 * @param node
-	 */
-	private static void totalRoutine(Node node) {
-		Element element = (Element) node;
-		
-		// get Totals's attribute
-		String id = element.getAttribute("xmlns");
-		
-		// get text
-		String description = element.getElementsByTagName("Description").item(0).getTextContent();
-		String consumption = element.getElementsByTagName("Consumption").item(0).getTextContent();
-		
+//	/**
+//	 * This method deals with the Total node found in the xml
+//	 * @param node
+//	 */
+//	private static void totalRoutine(Node node) {
+//		Element element = (Element) node;
+//		
+//		// get Totals's attribute
+//		String id = element.getAttribute("xmlns");
+//		
+//		// get text
+//		String description = element.getElementsByTagName("Description").item(0).getTextContent();
+//		String consumption = element.getElementsByTagName("Consumption").item(0).getTextContent();
+//		
 //		System.out.println("Current element: " + node.getNodeName());
 //		System.out.println("Total id: " + id);
 //		System.out.println("Description: " + description);
 //		System.out.println("Consumption: " + consumption);
 //		System.out.println();
-	}
+//	}
 	
 	/**
 	 * This method extracts the first float value from a string

@@ -9,6 +9,11 @@ import java.util.Random;
  */
 public class MedianCalculator {
 	
+	/**
+	 * Actually calculates the median value of an array via quicksort algorithm
+	 * @param array
+	 * @return
+	 */
 	public Float calculateMedian(List<Float> array) {
 		int size = array.size();
 		if (size == 0) {
@@ -19,7 +24,7 @@ public class MedianCalculator {
 	}
 
 	/**
-	 * Implementation of quicksort algoritm to find k-th smallest float in an unordered list
+	 * Implementation of quicksort algorithm to find k-th smallest float in an unordered list
 	 * @param array
 	 * @param k
 	 * @return

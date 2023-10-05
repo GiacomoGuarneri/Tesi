@@ -59,5 +59,5 @@ public class GmKnowledgeBase implements Serializable {
 	public Map<String, String> getConflictingSm(String wfp) {
 		return this.knowledgeBase.column(wfp);
 	}
-	
+		
 }

@@ -7,8 +7,17 @@ import model.GmSecurityMeasure;
 import model.GmWfp;
 import model.GoalModel;
 
+/**
+ * This class deals with the exclusion of measures from the propagation phase
+ */
 public class MeasureExcluder {
 	
+	/**
+	 * Asks the user to input the measure he wants to exclude from the propagation
+	 * @param goalModel
+	 * @param scanner
+	 * @return a list of strings containing the names of the measures to exclude
+	 */
 	public ArrayList<String> startExcluder(GoalModel goalModel, Scanner scanner){
 		System.out.println("These are the measures present in the model");
 		System.out.println();

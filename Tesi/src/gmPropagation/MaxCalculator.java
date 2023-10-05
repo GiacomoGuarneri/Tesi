@@ -7,6 +7,11 @@ import java.util.List;
  */
 public class MaxCalculator {
 	
+	/**
+	 * Calculates maximum of an array of floats
+	 * @param array
+	 * @return
+	 */
 	public Float calculateMax(List<Float> array) {
 		if (array.size() == 0) {
 			return null; //empty array case

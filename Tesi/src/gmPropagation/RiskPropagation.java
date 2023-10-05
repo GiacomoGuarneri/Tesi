@@ -19,6 +19,9 @@ import model.GoalModel;
  */
 public class RiskPropagation implements PropagationPolicy {
 
+	/**
+	 * Starts the risk propagation 
+	 */
 	@Override
 	public void startPropagation(GoalModel goalModel, Scanner scanner, ArrayList<String> toExclude) {
 		//First we need to select our propagation policy
@@ -57,6 +60,7 @@ public class RiskPropagation implements PropagationPolicy {
 	/**
 	 * This method performs medRank propagation of risk
 	 * @param goalModel
+	 * @param toExclude is the list of measure to exclude from propagation
 	 */
 	public static void medianPropagation(GoalModel goalModel, ArrayList<String> toExclude) {
 		preliminaryPropagation(goalModel, toExclude);
@@ -94,6 +98,7 @@ public class RiskPropagation implements PropagationPolicy {
 	/**
 	 * This method performs max propagation of risk
 	 * @param goalModel
+	 * @param toExclude is the list of measure to exclude from propagation
 	 */
 	public static void maxPropagation(GoalModel goalModel, ArrayList<String> toExclude) {
 		preliminaryPropagation(goalModel, toExclude);
@@ -131,6 +136,7 @@ public class RiskPropagation implements PropagationPolicy {
 	/**
 	 * This method performs average propagation of risk
 	 * @param goalModel
+	 * @param toExclude is the list of measure to exclude from propagation
 	 */
 	public static void averagePropagation(GoalModel goalModel, ArrayList<String> toExclude) {
 		preliminaryPropagation(goalModel, toExclude);
@@ -168,6 +174,7 @@ public class RiskPropagation implements PropagationPolicy {
 	/**
 	 * Performs preliminary propagation of risk: asset(IR) -> goal(RR), measures(RMI) -> goal(RR), goal(RR) -> asset(RR)
 	 * @param goalModel
+	 * @param toExclude is the list of measure to exclude from propagation
 	 */
 	public static void preliminaryPropagation(GoalModel goalModel, ArrayList<String> toExclude) {
 		protectPropagation(goalModel);
@@ -212,6 +219,7 @@ public class RiskPropagation implements PropagationPolicy {
 	/**
 	 * Propagate risk mitigation impact from measures participating in Enforce relationships to respective goals
 	 * @param goalModel
+	 * @param toExclude is the list of measure to exclude from propagation
 	 */
 	public static void enforcePropagation(GoalModel goalModel, ArrayList<String> toExclude) {
 		for (GmRelationship relationship : goalModel.getRelationshipsArray()) {

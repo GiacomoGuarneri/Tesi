@@ -211,7 +211,7 @@ public class JsonParser {
     }
     
     /**
-     * This method is responsible of getting out the asset info and relative goals info by invoking the specific support function
+     * This method is responsible of getting out the actor info and relative goals info by invoking the specific support function
      * @param actors is the json array of actors
      * @param goalModel
      */
@@ -293,6 +293,7 @@ public class JsonParser {
     /**
      * This method is responsible of getting out the AND-links info and organizing the goal in the respective actor goal-tree
      * @param array is the json array of links
+     * @param goalModel
      */
     private static void getLinksInfo (JSONArray array, GoalModel goalModel) {
     	for (int i=0; i < array.size(); i++) {

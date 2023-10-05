@@ -3,10 +3,15 @@ package gmPropagation;
 import java.util.List;
 
 /**
- * This class is in charge of calculating the average value, if list size is even we take the highest among median values
+ * This class is in charge of calculating the average value
  */
 public class AverageCalculator {
 
+	/**
+	 * Calculates the average of an array of floats
+	 * @param array
+	 * @return
+	 */
 	public Float calculateAverage(List<Float> array) {
 		if (array.size() == 0) {
 			return null; //empty array case

@@ -17,7 +17,6 @@ public class GmWfp extends GmComponent {
 				+ ", riskMitigationImpact=" + this.getRiskMitigationImpact() + "]";
 	}
 	
-
 	public float getRiskMitigationImpact() {
 		return riskMitigationImpact;
 	}
