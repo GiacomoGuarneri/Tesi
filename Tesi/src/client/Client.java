@@ -39,8 +39,8 @@ public class Client {
 		
 		jsonRiskParser.start(goalModel);
 		
-		System.out.println("--------------------------XML-----------------------------------");
-		System.out.println();
+//		System.out.println("--------------------------XML-----------------------------------");
+//		System.out.println();
 		
 		xmlParser.start(goalModel);
 		
@@ -72,9 +72,6 @@ public class Client {
 		System.out.println("---------------------------------------------------------------------------------------");
 		System.out.println();	
 		
-		for (GmSecurityMeasure sm : goalModel.getSmArray()) {
-			sm.setEnergyConsumption(7);
-		}
 		enPropagator.startPropagation(goalModel);
 		printModel(goalModel);
 		

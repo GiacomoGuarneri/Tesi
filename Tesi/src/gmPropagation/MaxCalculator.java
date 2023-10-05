@@ -7,12 +7,12 @@ import java.util.List;
  */
 public class MaxCalculator {
 	
-	public Integer calculateMax(List<Integer> array) {
+	public Float calculateMax(List<Float> array) {
 		if (array.size() == 0) {
 			return null; //empty array case
 		}
 		
-		int max = array.get(0); //assume first element is maximum
+		float max = array.get(0); //assume first element is maximum
 		
 		for (int i = 1; i < array.size(); i++) {
 			if (array.get(i) > max) {

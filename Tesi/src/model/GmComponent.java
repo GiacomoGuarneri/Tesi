@@ -6,8 +6,8 @@ package model;
 public class GmComponent {
 	private String id;
 	private String description;
-	private int energyConsumption;
-	private int residualRisk;
+	private float energyConsumption;
+	private float residualRisk;
 	
 	public GmComponent(String id, String description) {
 		this.id = id;
@@ -30,11 +30,11 @@ public class GmComponent {
 		this.description = description;
 	}
 
-	public int getEnergyConsumption() {
+	public float getEnergyConsumption() {
 		return energyConsumption;
 	}
 
-	public void setEnergyConsumption(int energyConsumption) {
+	public void setEnergyConsumption(float energyConsumption) {
 		this.energyConsumption = energyConsumption;
 	}
 	
@@ -42,7 +42,7 @@ public class GmComponent {
 	 * Updates energyConsumption by arbitrary value
 	 * @param increment
 	 */
-	public void updateEnergyConsumption(int increment) {
+	public void updateEnergyConsumption(float increment) {
 		this.energyConsumption = this.energyConsumption + increment;
 	}
 	
@@ -50,7 +50,7 @@ public class GmComponent {
 	 * Updates residualRisk by arbitrary value
 	 * @param decrement
 	 */
-	public void updateResidualRisk(int decrement) {
+	public void updateResidualRisk(float decrement) {
 		//residual risk CANNOT go under 0
 		if (this.residualRisk - decrement < 0) {
 			this.residualRisk = 0;
@@ -59,11 +59,11 @@ public class GmComponent {
 		}
 	}
 
-	public int getResidualRisk() {
+	public float getResidualRisk() {
 		return residualRisk;
 	}
 
-	public void setResidualRisk(int residualRisk) {
+	public void setResidualRisk(float residualRisk) {
 		this.residualRisk = residualRisk;
 	}
 

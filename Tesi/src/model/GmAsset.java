@@ -5,7 +5,7 @@ package model;
  */
 public class GmAsset extends GmComponent{
 	// Assets have a starting value of inherent risk that will be mitigated by wfp and sm
-	private int inherentRisk;
+	private float inherentRisk;
 	
 	public GmAsset(String id, String description) {
 		super(id, description);
@@ -17,11 +17,11 @@ public class GmAsset extends GmComponent{
 				+ ", inherentRisk=" + this.getInherentRisk() + ", residualRisk=" + super.getResidualRisk() + "]";
 	}
 
-	public int getInherentRisk() {
+	public float getInherentRisk() {
 		return inherentRisk;
 	}
 
-	public void setInherentRisk(int inherentRisk) {
+	public void setInherentRisk(float inherentRisk) {
 		this.inherentRisk = inherentRisk;
 	}
 }

@@ -5,7 +5,7 @@ package model;
  */
 public class GmSecurityMeasure extends GmComponent {
 	// Security measures and Wfp are provided with a risk mitigation impact
-	private int riskMitigationImpact;
+	private float riskMitigationImpact;
 	
 	public GmSecurityMeasure(String id, String description) {
 		super(id, description);
@@ -17,11 +17,11 @@ public class GmSecurityMeasure extends GmComponent {
 				+ ", riskMitigationImpact=" + this.getRiskMitigationImpact() + "]";
 	}
 
-	public int getRiskMitigationImpact() {
+	public float getRiskMitigationImpact() {
 		return riskMitigationImpact;
 	}
 
-	public void setRiskMitigationImpact(int riskMitigationImpact) {
+	public void setRiskMitigationImpact(float riskMitigationImpact) {
 		this.riskMitigationImpact = riskMitigationImpact;
 	}
 }

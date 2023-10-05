@@ -38,19 +38,8 @@ public class EnergyPropagation implements PropagationPolicy {
 	public static void enforcePropagation(GoalModel goalModel) {
 		for (GmRelationship relationship : goalModel.getRelationshipsArray()) {
 			if (relationship instanceof GmEnforceRelationship) {
-				String goal_id = relationship.getSource_id();
-				GmGoal goalNode = null;
 				String measure_id = relationship.getTarget_id();
 				GmComponent measure = null;
-				
-				//Gets goal
-				for (GmActor actor : goalModel.getActorsArray()) {
-					for (GmGoal goal : actor.getGoals()) {
-						if (goal.getId().equals(goal_id)) {
-							goalNode = goal;
-						}
-					}
-				}
 				
 				//Gets measure (sm or wfp)
 				for (GmSecurityMeasure sm : goalModel.getSmArray()) {
@@ -64,8 +53,40 @@ public class EnergyPropagation implements PropagationPolicy {
 					}
 				}
 				
-				//Increments goal EN by connected measure
-				goalNode.updateEnergyConsumption(measure.getEnergyConsumption());
+				//First I count to how many goals the measure is connected to
+				int occurrences = 0;
+				for (GmRelationship rel : goalModel.getRelationshipsArray()) {
+					if (rel instanceof GmEnforceRelationship && measure_id.equals(rel.getTarget_id())) {
+						occurrences++;
+					}
+				}
+
+				//Second cycle to update energy of goals
+				for (GmRelationship rel : goalModel.getRelationshipsArray()) {
+					
+					if (rel instanceof GmEnforceRelationship && measure.getId().equals(rel.getTarget_id())) {
+						String goal_id = rel.getSource_id();
+						GmGoal goalNode = null;
+						
+						//Gets goal
+						for (GmActor actor : goalModel.getActorsArray()) {
+							for (GmGoal goal : actor.getGoals()) {
+								if (goal.getId().equals(goal_id)) {
+									goalNode = goal;
+								}
+							}
+						}
+						
+						if (occurrences == 1) { //measure is connected to only one goal, so all his consumption is propagated to the goal
+							goalNode.updateEnergyConsumption(measure.getEnergyConsumption());
+						}
+						else { //measure is connected to multiple goals, so the average energy value is spread among the linked goals
+							float average_en = measure.getEnergyConsumption() / occurrences;
+							goalNode.updateEnergyConsumption(average_en);
+						}
+					}
+				}
+				
 			}				
 		}
 	}
@@ -74,7 +95,7 @@ public class EnergyPropagation implements PropagationPolicy {
 	 * Propagate EN from goal participating in Protect relationships to respective assets
 	 * @param goalModel
 	 */
-	public static void protectPropagation(GoalModel goalModel) {
+	private static void protectPropagation(GoalModel goalModel) {
 		for (GmRelationship relationship : goalModel.getRelationshipsArray()) {
 			if (relationship instanceof GmProtectRelationship) {
 				String goal_id = relationship.getSource_id();
@@ -108,7 +129,7 @@ public class EnergyPropagation implements PropagationPolicy {
 	 * Propagates energy consumption in goal trees: AND branches mean that goal consumption need to be summed up
 	 * @param goalModel
 	 */
-	public static void goalPropagation(GoalModel goalModel) {
+	private static void goalPropagation(GoalModel goalModel) {
 		//For each actor I need to perform propagation
 		for (GmActor actor : goalModel.getActorsArray()) {
 			//I need to traverse arrayList of goals from end to start to do one pass and propagate

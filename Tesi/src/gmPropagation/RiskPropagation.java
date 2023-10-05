@@ -25,11 +25,12 @@ public class RiskPropagation implements PropagationPolicy {
 		System.out.println("Select which policy to adopt for risk propagation:");
 		System.out.println("1 - Median");
 		System.out.println("2 - Max");
+		System.out.println("3 - Average");
 		System.out.println();
 		Scanner scanner = new Scanner(System.in); //System.in is a standard input system
 		System.out.println("Enter the number corresponding to the chosen policy: ");
 		int choice = scanner.nextInt();
-		while (choice != 1 && choice != 2) {
+		while (choice != 1 && choice != 2 && choice != 3) {
 			System.out.println("Please enter a valid number: ");
 			choice = scanner.nextInt();
 		}
@@ -41,6 +42,10 @@ public class RiskPropagation implements PropagationPolicy {
 			case 2:
 				System.out.println("You have selected Max policy");
 				maxPropagation(goalModel);
+				break;
+			case 3:
+				System.out.println("You have selected Average policy");
+				averagePropagation(goalModel);
 				break;
 		default:
 			throw new IllegalArgumentException("Unexpected value: " + choice);
@@ -68,14 +73,14 @@ public class RiskPropagation implements PropagationPolicy {
 					List<GmGoal> children = currentGoal.getChildren();
 					
 					//first I prepare an array of child values
-					List<Integer> array = new ArrayList<>();
+					List<Float> array = new ArrayList<>();
 					for (GmGoal goal : children) {
 						array.add(goal.getResidualRisk());
 					}
 					
 					//now we have an array of all the child values and we can find median value
 					MedianCalculator calculator = new MedianCalculator();
-					int medianValue = calculator.calculateMedian(array);
+					float medianValue = calculator.calculateMedian(array);
 					
 					//we can update rr of curent goal
 					currentGoal.setResidualRisk(medianValue);
@@ -105,17 +110,54 @@ public class RiskPropagation implements PropagationPolicy {
 					List<GmGoal> children = currentGoal.getChildren();
 							
 					//first I prepare an array of child values
-					List<Integer> array = new ArrayList<>();
+					List<Float> array = new ArrayList<>();
 					for (GmGoal goal : children) {
 						array.add(goal.getResidualRisk());
 					}
 							
 					//now we have an array of all the child values and we can find max value
 					MaxCalculator calculator = new MaxCalculator();
-					int maxValue = calculator.calculateMax(array);
+					float maxValue = calculator.calculateMax(array);
 							
 					//we can update rr of current goal
 					currentGoal.setResidualRisk(maxValue);
+				}
+			}
+		}
+	}
+	
+	/**
+	 * This method performs average propagation of risk
+	 * @param goalModel
+	 */
+	public static void averagePropagation(GoalModel goalModel) {
+		preliminaryPropagation(goalModel);
+		
+		//Now we need to perform goal propagation following max policy
+		for (GmActor actor : goalModel.getActorsArray()) {
+				
+			//I need to traverse arrayList of goals from end to start to do one pass and propagate
+			ArrayList<GmGoal> goalList = actor.getGoals();
+							
+			for (int i = goalList.size() - 1; i>=0; i--) {
+				GmGoal currentGoal = goalList.get(i);
+						
+				//Leaf goals are ok, we need to only update the non-leaf goals
+				if (! currentGoal.isLeaf()) {
+					List<GmGoal> children = currentGoal.getChildren();
+								
+					//first I prepare an array of child values
+					List<Float> array = new ArrayList<>();
+					for (GmGoal goal : children) {
+						array.add(goal.getResidualRisk());
+					}
+									
+					//now we have an array of all the child values and we can find average value
+					AverageCalculator calculator = new AverageCalculator();
+					float averageValue = calculator.calculateAverage(array);
+									
+					//we can update rr of current goal
+					currentGoal.setResidualRisk(averageValue);
 				}
 			}
 		}

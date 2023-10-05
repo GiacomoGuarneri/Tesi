@@ -60,5 +60,4 @@ public class GmKnowledgeBase implements Serializable {
 		return this.knowledgeBase.column(wfp);
 	}
 	
-	//TODO to serialize to be exported and imported, look for libraries to serialize the class
 }

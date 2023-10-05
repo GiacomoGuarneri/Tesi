@@ -9,7 +9,7 @@ import java.util.Random;
  */
 public class MedianCalculator {
 	
-	public Integer calculateMedian(List<Integer> array) {
+	public Float calculateMedian(List<Float> array) {
 		int size = array.size();
 		if (size == 0) {
 			return null; // empty array case
@@ -19,23 +19,23 @@ public class MedianCalculator {
 	}
 
 	/**
-	 * Implementation of quicksort algoritm to find k-th smallest integer in an unordered list
+	 * Implementation of quicksort algoritm to find k-th smallest float in an unordered list
 	 * @param array
 	 * @param k
 	 * @return
 	 */
-	private static Integer quickselect(List<Integer> array, int k) {
+	private static Float quickselect(List<Float> array, int k) {
 		int size = array.size();
 		Random random = new Random();
 		
 		int pivotIndex = random.nextInt(size);
-		int pivot = array.get(pivotIndex);
+		Float pivot = array.get(pivotIndex);
 		
-		List<Integer> lower = new ArrayList<>();
-        List<Integer> higher = new ArrayList<>();
-        List<Integer> equal = new ArrayList<>();
+		List<Float> lower = new ArrayList<>();
+        List<Float> higher = new ArrayList<>();
+        List<Float> equal = new ArrayList<>();
         
-        for (int num : array) {
+        for (Float num : array) {
             if (num < pivot) {
                 lower.add(num);
             } else if (num > pivot) {
