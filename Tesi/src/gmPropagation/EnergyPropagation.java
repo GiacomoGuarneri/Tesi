@@ -1,6 +1,8 @@
 package gmPropagation;
 
 import java.util.ArrayList;
+import java.util.Scanner;
+
 import model.GmActor;
 import model.GmAsset;
 import model.GmComponent;
@@ -18,10 +20,10 @@ import model.GoalModel;
 public class EnergyPropagation implements PropagationPolicy {
 
 	@Override
-	public void startPropagation(GoalModel goalModel) {
+	public void startPropagation(GoalModel goalModel, Scanner scanner, ArrayList<String> toExclude) {
 		
 		//First we propagate EN of sm/wfp to connected goals (enforce relationships)
-		enforcePropagation(goalModel);
+		enforcePropagation(goalModel, toExclude);
 		
 		//After having updated all leaf nodes we have to update assets EN by down propagating updated goal values via protect relationships
 		protectPropagation(goalModel);
@@ -35,9 +37,9 @@ public class EnergyPropagation implements PropagationPolicy {
 	 * Propagate EN from measures participating in Enforce relationships to respective goals
 	 * @param goalModel
 	 */
-	public static void enforcePropagation(GoalModel goalModel) {
+	public static void enforcePropagation(GoalModel goalModel, ArrayList<String> toExclude) {
 		for (GmRelationship relationship : goalModel.getRelationshipsArray()) {
-			if (relationship instanceof GmEnforceRelationship) {
+			if (relationship instanceof GmEnforceRelationship && !toExclude.contains(relationship.getTarget_id())) {
 				String measure_id = relationship.getTarget_id();
 				GmComponent measure = null;
 				

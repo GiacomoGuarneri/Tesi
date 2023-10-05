@@ -1,5 +1,8 @@
 package gmPropagation;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
 import model.GoalModel;
 
 /**
@@ -7,8 +10,10 @@ import model.GoalModel;
  */
 public interface PropagationPolicy {
 	/**
-	 * This method perform the propagation given the goalModel
-	 * @param goalModel
+	 * This method perform the propagation
+	 * @param goalModel is the model
+	 * @param scanner is useful to take input from the user
+	 * @param toExclude is a list of strings containing the measures to exclude from the propagation
 	 */
-	public void startPropagation(GoalModel goalModel);
+	public void startPropagation(GoalModel goalModel, Scanner scanner, ArrayList<String> toExclude);
 }

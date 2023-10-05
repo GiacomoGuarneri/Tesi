@@ -20,15 +20,13 @@ import model.GoalModel;
 public class RiskPropagation implements PropagationPolicy {
 
 	@Override
-	public void startPropagation(GoalModel goalModel) {
+	public void startPropagation(GoalModel goalModel, Scanner scanner, ArrayList<String> toExclude) {
 		//First we need to select our propagation policy
 		System.out.println("Select which policy to adopt for risk propagation:");
 		System.out.println("1 - Median");
 		System.out.println("2 - Max");
 		System.out.println("3 - Average");
-		System.out.println();
-		Scanner scanner = new Scanner(System.in); //System.in is a standard input system
-		System.out.println("Enter the number corresponding to the chosen policy: ");
+		System.out.println();System.out.println("Enter the number corresponding to the chosen policy: ");
 		int choice = scanner.nextInt();
 		while (choice != 1 && choice != 2 && choice != 3) {
 			System.out.println("Please enter a valid number: ");
@@ -37,17 +35,21 @@ public class RiskPropagation implements PropagationPolicy {
 		switch (choice) {
 			case 1:
 				System.out.println("You have selected Median policy");
-				medianPropagation(goalModel);
+				scanner.close();
+				medianPropagation(goalModel, toExclude);
 				break;
 			case 2:
 				System.out.println("You have selected Max policy");
-				maxPropagation(goalModel);
+				scanner.close();
+				maxPropagation(goalModel, toExclude);
 				break;
 			case 3:
 				System.out.println("You have selected Average policy");
-				averagePropagation(goalModel);
+				scanner.close();
+				averagePropagation(goalModel, toExclude);
 				break;
 		default:
+			scanner.close();
 			throw new IllegalArgumentException("Unexpected value: " + choice);
 		}
 	}
@@ -56,8 +58,8 @@ public class RiskPropagation implements PropagationPolicy {
 	 * This method performs medRank propagation of risk
 	 * @param goalModel
 	 */
-	public static void medianPropagation(GoalModel goalModel) {
-		preliminaryPropagation(goalModel);
+	public static void medianPropagation(GoalModel goalModel, ArrayList<String> toExclude) {
+		preliminaryPropagation(goalModel, toExclude);
 		
 		//Now we need to perform goal propagation following medRank policy
 		for (GmActor actor : goalModel.getActorsArray()) {
@@ -93,8 +95,8 @@ public class RiskPropagation implements PropagationPolicy {
 	 * This method performs max propagation of risk
 	 * @param goalModel
 	 */
-	public static void maxPropagation(GoalModel goalModel) {
-		preliminaryPropagation(goalModel);
+	public static void maxPropagation(GoalModel goalModel, ArrayList<String> toExclude) {
+		preliminaryPropagation(goalModel, toExclude);
 		
 		//Now we need to perform goal propagation following max policy
 		for (GmActor actor : goalModel.getActorsArray()) {
@@ -130,8 +132,8 @@ public class RiskPropagation implements PropagationPolicy {
 	 * This method performs average propagation of risk
 	 * @param goalModel
 	 */
-	public static void averagePropagation(GoalModel goalModel) {
-		preliminaryPropagation(goalModel);
+	public static void averagePropagation(GoalModel goalModel, ArrayList<String> toExclude) {
+		preliminaryPropagation(goalModel, toExclude);
 		
 		//Now we need to perform goal propagation following max policy
 		for (GmActor actor : goalModel.getActorsArray()) {
@@ -167,9 +169,9 @@ public class RiskPropagation implements PropagationPolicy {
 	 * Performs preliminary propagation of risk: asset(IR) -> goal(RR), measures(RMI) -> goal(RR), goal(RR) -> asset(RR)
 	 * @param goalModel
 	 */
-	public static void preliminaryPropagation(GoalModel goalModel) {
+	public static void preliminaryPropagation(GoalModel goalModel, ArrayList<String> toExclude) {
 		protectPropagation(goalModel);
-		enforcePropagation(goalModel);
+		enforcePropagation(goalModel, toExclude);
 		assetUpdate(goalModel);
 	}
 	
@@ -211,9 +213,9 @@ public class RiskPropagation implements PropagationPolicy {
 	 * Propagate risk mitigation impact from measures participating in Enforce relationships to respective goals
 	 * @param goalModel
 	 */
-	public static void enforcePropagation(GoalModel goalModel) {
+	public static void enforcePropagation(GoalModel goalModel, ArrayList<String> toExclude) {
 		for (GmRelationship relationship : goalModel.getRelationshipsArray()) {
-			if (relationship instanceof GmEnforceRelationship) {
+			if (relationship instanceof GmEnforceRelationship && !toExclude.contains(relationship.getTarget_id())) {
 				String goal_id = relationship.getSource_id();
 				GmGoal goalNode = null;
 				String measure_id = relationship.getTarget_id();

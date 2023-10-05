@@ -1,13 +1,18 @@
 package client;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Scanner;
 import java.util.function.Function;
 
 import gmConverter.JsonParser;
 import gmConverter.JsonRiskParser;
 import gmConverter.KnowledgeBaseSerializer;
+import gmConverter.MeasureFromTextToId;
 import gmConverter.XmlParser;
 import gmPropagation.EnergyPropagation;
+import gmPropagation.MeasureExcluder;
 import gmPropagation.RiskPropagation;
 import model.GmActor;
 import model.GmGoal;
@@ -36,6 +41,9 @@ public class Client {
 		ModelPrinter modelPrinter = new ModelPrinter();
 		GoalEnergyPrinter goalEnergyPrinter = new GoalEnergyPrinter();
 		AssetEnergyPrinter assetEnergyPrinter = new AssetEnergyPrinter();
+		MeasureExcluder measureExcluder = new MeasureExcluder();
+		Scanner scanner = new Scanner(System.in);
+		MeasureFromTextToId converter = new MeasureFromTextToId();
 		
 		jsonParser.start(goalModel);
 		
@@ -73,11 +81,29 @@ public class Client {
 		conflictChecker.start(goalModel, knowledgeBase);
 		
 		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("--------------------------------PROPAGATION EXCLUSION----------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();
+		
+		ArrayList<String> toExclude = measureExcluder.startExcluder(goalModel, scanner);
+		if (toExclude.size() == 0) {
+			System.out.println("No measures will be excluded from the analysis");
+		} else {
+			System.out.println("The following measures will be excluded from the analysis:");
+			for (String string : toExclude) {
+				System.out.println(string);
+			}
+		}
+		System.out.println();
+		
+		toExclude = converter.startConversion(goalModel, toExclude);
+		
+		System.out.println("---------------------------------------------------------------------------------------");
 		System.out.println("-----------------------------------ENERGY PROPAGATION----------------------------------");
 		System.out.println("---------------------------------------------------------------------------------------");
-		System.out.println();	
+		System.out.println();
 		
-		enPropagator.startPropagation(goalModel);
+		enPropagator.startPropagation(goalModel, scanner, toExclude);
 		modelPrinter.printModel(goalModel);
 		
 		System.out.println("---------------------------------------------------------------------------------------");
@@ -85,7 +111,7 @@ public class Client {
 		System.out.println("---------------------------------------------------------------------------------------");
 		System.out.println();	
 		
-		riskPropagator.startPropagation(goalModel);
+		riskPropagator.startPropagation(goalModel, scanner, toExclude);
 		modelPrinter.printModel(goalModel);
 		
 		System.out.println("---------------------------------------------------------------------------------------");
