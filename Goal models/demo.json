@@ -1,0 +1,459 @@
+{
+  "wfp": [],
+  "sm": [
+    {
+      "id": "6ca92b8b-5c70-46cf-806a-5bf38f691c5f",
+      "text": "Open Policy Agent"
+    },
+    {
+      "id": "db1d42ca-641b-4b0b-a89b-a03230645c15",
+      "text": "AES"
+    },
+    {
+      "id": "abf16f24-d5ac-4d7b-ae1e-1144999a31cc",
+      "text": "OPA for function access"
+    },
+    {
+      "id": "4a1d89a2-77e6-495e-99c1-52478332a93a",
+      "text": "OPA for data"
+    },
+    {
+      "id": "5b3c7d9f-682a-4e12-8f3b-6a0e38a72d21",
+      "text": "Data Loss Prevention"
+    },
+    {
+      "id": "8e6f42c1-3d77-4a9a-bf85-9e24db056708",
+      "text": "Secure Access Service Edge"
+    }
+  ],
+  "asset": [
+    {
+      "id": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684",
+      "text": "Customer data"
+    },
+    {
+      "id": "013623dc-6dc4-4711-8e95-423258c741d7",
+      "text": "Personal data"
+    },
+    {
+      "id": "dae570d9-4895-4268-8f63-4c5333dee710",
+      "text": "Analytical data"
+    },
+    {
+      "id": "3a8b4c9e-2f1d-47e0-8d6a-1f7c5e9a82d6",
+      "text": "Credentials"
+    }
+  ],
+  "actors": [
+    {
+      "id": "aac0e443-5442-4704-b6fc-a8803349e976",
+      "text": "IT department",
+      "type": "istar.Actor",
+      "x": 833,
+      "y": 131,
+      "customProperties": {
+        "Description": ""
+      },
+      "nodes": [
+        {
+          "id": "abd2b659-8835-41fa-a233-f4ab95a338f5",
+          "text": "Standards compliance",
+          "type": "istar.Goal",
+          "x": 970,
+          "y": 154.5,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "f4974cd7-170e-42e8-af5a-14526e04cdb0",
+          "text": "ISO/IEC 27001 compliance",
+          "type": "istar.Goal",
+          "x": 887,
+          "y": 249,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "7e9fc89c-f371-4d6f-b380-fc92f0055b1b",
+          "text": "ISO/IEC 27017 compliance",
+          "type": "istar.Goal",
+          "x": 1059,
+          "y": 252,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "1cd8277f-42d4-42f8-911e-985de6b249bc",
+          "text": "Access control provisioned",
+          "type": "istar.Goal",
+          "x": 833,
+          "y": 343,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "a21bc013-ab4c-4862-afe2-7d8f569e64bd",
+          "text": "Confidentiality of data",
+          "type": "istar.Goal",
+          "x": 983,
+          "y": 341,
+          "customProperties": {
+            "Description": ""
+          }
+        }
+      ]
+    },
+    {
+      "id": "3905c6ff-202f-4096-aaf2-e944ccd5facb",
+      "text": "Company",
+      "type": "istar.Actor",
+      "x": 67,
+      "y": 134,
+      "customProperties": {
+        "Description": ""
+      },
+      "nodes": [
+        {
+          "id": "efff559f-7b2b-4c74-9be5-7ca5f91192f6",
+          "text": "IT security and data protection",
+          "type": "istar.Goal",
+          "x": 303,
+          "y": 145,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "d7ecc7a7-c6d8-47f5-9bba-00470fc69e67",
+          "text": "Prevent impacts",
+          "type": "istar.Goal",
+          "x": 146,
+          "y": 251,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "6d221bfb-f568-45ba-9e39-0ec83e5ee9c2",
+          "text": "Avoid modifications after deployment",
+          "type": "istar.Goal",
+          "x": 292,
+          "y": 231,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "2c2ae005-9833-4ed4-b720-7e153def8ae3",
+          "text": "Compliance",
+          "type": "istar.Goal",
+          "x": 463,
+          "y": 252,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "4937109c-f71d-42d5-b27b-d25b5883957e",
+          "text": "Prevent legal impacts",
+          "type": "istar.Goal",
+          "x": 67,
+          "y": 355,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "dc3fd60e-50eb-4396-a836-ea0efd118cf4",
+          "text": "Prevent image impacts",
+          "type": "istar.Goal",
+          "x": 174,
+          "y": 356,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "077e97ba-ce6f-482c-8b8b-5d236eae292a",
+          "text": "Norms compliance",
+          "type": "istar.Goal",
+          "x": 381,
+          "y": 364,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "dc44d79a-aadf-4041-a710-9d1a34c0f043",
+          "text": "Standard compliance",
+          "type": "istar.Goal",
+          "x": 554,
+          "y": 363,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "61702a82-0741-478e-a8c1-2f0e96a35adc",
+          "text": "GDPR compliance",
+          "type": "istar.Goal",
+          "x": 297,
+          "y": 440,
+          "customProperties": {
+            "Description": ""
+          }
+        },
+        {
+          "id": "29cf2c63-ae98-4ea8-a61d-b20f37af7629",
+          "text": "Digital PA laws",
+          "type": "istar.Goal",
+          "x": 436,
+          "y": 439,
+          "customProperties": {
+            "Description": ""
+          }
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "58f862cf-1e83-475f-bf32-3e448210a4a5",
+      "text": "Standards compliance",
+      "type": "SecureEnergy.Delegation-relationship",
+      "x": 495,
+      "y": 18,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "3905c6ff-202f-4096-aaf2-e944ccd5facb",
+      "target": "aac0e443-5442-4704-b6fc-a8803349e976" 
+    },
+    {
+      "id": "88a59b5e-f7ec-4e12-afbd-bf57cb5cc097",
+      "text": "protect",
+      "type": "SecureEnergy.Protect-relationship",
+      "x": 392,
+      "y": 574,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "61702a82-0741-478e-a8c1-2f0e96a35adc",
+      "target": "013623dc-6dc4-4711-8e95-423258c741d7" 
+    },
+    {
+      "id": "434c263e-fa63-4f54-b3e8-18bb6e6f6dc3",
+      "text": "enforce",
+      "type": "SecureEnergy.Enforce-relationship",
+      "x": 1111,
+      "y": 421,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "a21bc013-ab4c-4862-afe2-7d8f569e64bd",
+      "target": "db1d42ca-641b-4b0b-a89b-a03230645c15"
+    },
+    {
+      "id": "e6b5aae6-1cf7-4791-822a-666ec260f89e",
+      "text": "enforce",
+      "type": "SecureEnergy.Enforce-relationship",
+      "x": 863,
+      "y": 609,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "1cd8277f-42d4-42f8-911e-985de6b249bc",
+      "target": "abf16f24-d5ac-4d7b-ae1e-1144999a31cc"
+    },
+    {
+      "id": "4dd21eb2-b2f7-4fed-8d67-68b242989608",
+      "text": "protect",
+      "type": "SecureEnergy.Protect-relationship",
+      "x": 778,
+      "y": 452,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "a21bc013-ab4c-4862-afe2-7d8f569e64bd",
+      "target": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684"
+    },
+    {           
+      "id": "f4e427df-2e35-4cc3-b6de-ddee49926a52",
+      "text": "is-a",
+      "type": "SecureEnergy.Is-A-relationship",
+      "x": null,
+      "y": null,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "6ca92b8b-5c70-46cf-806a-5bf38f691c5f",            
+      "target": "abf16f24-d5ac-4d7b-ae1e-1144999a31cc"  
+    },
+    {   
+      "id": "56a12f2b-e07e-425e-b2e7-75fe622568df",
+      "text": "is-a",
+      "type": "SecureEnergy.Is-A-relationship",
+      "x": null,
+      "y": null,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "6ca92b8b-5c70-46cf-806a-5bf38f691c5f",            
+      "target": "4a1d89a2-77e6-495e-99c1-52478332a93a" 
+    },
+    {
+      "id": "3d0d1d1e-85c9-46f1-9688-54489be02b21",
+      "text": "part-of",
+      "type": "SecureEnergy.Part-Of-relationship",
+      "x": null,
+      "y": null,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684",
+      "target": "013623dc-6dc4-4711-8e95-423258c741d7"
+    },
+    {
+      "id": "0661ebd8-2f04-4b23-a4f3-6161e3f28c9a",
+      "text": "part-of",
+      "type": "SecureEnergy.Part-Of-relationship",
+      "x": null,
+      "y": null,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684",
+      "target": "dae570d9-4895-4268-8f63-4c5333dee710"
+    },
+    {
+      "id": "a7f84e2d-1c3b-4f9d-96a0-87e5a6c4d831",
+      "text": "enforce",
+      "type": "SecureEnergy.Enforce-relationship",
+      "x": 863,
+      "y": 609,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "61702a82-0741-478e-a8c1-2f0e96a35adc",
+      "target": "5b3c7d9f-682a-4e12-8f3b-6a0e38a72d21"
+    },
+    {
+      "id": "6d9a5f1b-8c0e-4737-af63-24b8ac9d52d7",
+      "text": "enforce",
+      "type": "SecureEnergy.Enforce-relationship",
+      "x": 863,
+      "y": 609,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "4937109c-f71d-42d5-b27b-d25b5883957e",
+      "target": "8e6f42c1-3d77-4a9a-bf85-9e24db056708"
+    },
+    {
+      "id": "1e4d9c7a-3b2f-4d8e-9a6c-6f8a2e5d1b47",
+      "text": "protect",
+      "type": "SecureEnergy.Protect-relationship",
+      "x": 392,
+      "y": 574,
+      "customProperties": {
+        "Description": ""
+      },
+      "source": "4937109c-f71d-42d5-b27b-d25b5883957e",
+      "target": "3a8b4c9e-2f1d-47e0-8d6a-1f7c5e9a82d6" 
+    }
+  ],
+  "links": [
+    {
+      "id": "16f43d7c-b470-465b-b1e3-1790e677afee",
+      "type": "istar.AndRefinementLink",
+      "source": "d7ecc7a7-c6d8-47f5-9bba-00470fc69e67",
+      "target": "efff559f-7b2b-4c74-9be5-7ca5f91192f6"
+    },
+    {
+      "id": "7c737207-58d9-4e04-b253-0612fee2fe93",
+      "type": "istar.AndRefinementLink",
+      "source": "6d221bfb-f568-45ba-9e39-0ec83e5ee9c2",
+      "target": "efff559f-7b2b-4c74-9be5-7ca5f91192f6"
+    },
+    {
+      "id": "f40cd63c-3d1f-4afb-ae48-e420a435eeb2",
+      "type": "istar.AndRefinementLink",
+      "source": "2c2ae005-9833-4ed4-b720-7e153def8ae3",
+      "target": "efff559f-7b2b-4c74-9be5-7ca5f91192f6"
+    },
+    {
+      "id": "6c9d454a-2a14-4db9-8cf0-88c8e9906b23",
+      "type": "istar.AndRefinementLink",
+      "source": "4937109c-f71d-42d5-b27b-d25b5883957e",
+      "target": "d7ecc7a7-c6d8-47f5-9bba-00470fc69e67"
+    },
+    {
+      "id": "9ce8fed7-063b-4a4a-a33d-b0562a608e5f",
+      "type": "istar.AndRefinementLink",
+      "source": "dc3fd60e-50eb-4396-a836-ea0efd118cf4",
+      "target": "d7ecc7a7-c6d8-47f5-9bba-00470fc69e67"
+    },
+    {
+      "id": "eeaaa38f-7ce6-42d0-8146-096ae04c36db",
+      "type": "istar.AndRefinementLink",
+      "source": "077e97ba-ce6f-482c-8b8b-5d236eae292a",
+      "target": "2c2ae005-9833-4ed4-b720-7e153def8ae3" 
+    },
+    {
+      "id": "78ba79f3-a231-414e-83a6-33202a4a3887",
+      "type": "istar.AndRefinementLink",
+      "source": "dc44d79a-aadf-4041-a710-9d1a34c0f043",
+      "target": "2c2ae005-9833-4ed4-b720-7e153def8ae3" 
+    },
+    {
+      "id": "22177eae-f66c-497e-b822-df7c77df532b",
+      "type": "istar.AndRefinementLink",
+      "source": "61702a82-0741-478e-a8c1-2f0e96a35adc",
+      "target": "077e97ba-ce6f-482c-8b8b-5d236eae292a"
+    },
+    {
+      "id": "a8338425-8e9e-49fd-8fab-aebff45ba544",
+      "type": "istar.AndRefinementLink",
+      "source": "29cf2c63-ae98-4ea8-a61d-b20f37af7629",
+      "target": "077e97ba-ce6f-482c-8b8b-5d236eae292a"
+    },
+    {
+      "id": "dd1da3b6-00b6-4114-8869-d3df7f7ca825",
+      "type": "istar.AndRefinementLink",
+      "source": "f4974cd7-170e-42e8-af5a-14526e04cdb0",
+      "target": "abd2b659-8835-41fa-a233-f4ab95a338f5"
+    },
+    {
+      "id": "2c40f44d-9d23-41e3-be3c-ec77d412be24",
+      "type": "istar.AndRefinementLink",
+      "source": "7e9fc89c-f371-4d6f-b380-fc92f0055b1b",
+      "target": "abd2b659-8835-41fa-a233-f4ab95a338f5"
+    },
+    {
+      "id": "be7f11ae-3320-4ed0-a153-ddd95f6a9fbf",
+      "type": "istar.AndRefinementLink",
+      "source": "1cd8277f-42d4-42f8-911e-985de6b249bc",
+      "target": "f4974cd7-170e-42e8-af5a-14526e04cdb0"
+    },
+    {
+      "id": "9667a5b7-fb13-4efb-947c-4337be04f61a",
+      "type": "istar.AndRefinementLink",
+      "source": "a21bc013-ab4c-4862-afe2-7d8f569e64bd",
+      "target": "f4974cd7-170e-42e8-af5a-14526e04cdb0"
+    }
+  ],
+  "tool": "pistar.2.1.0",
+  "istar": "2.0",
+  "saveDate": "Mon, 21 Aug 2023 15:12:13 GMT",
+  "diagram": {
+    "width": 1290,
+    "height": 794,
+    "customProperties": {
+      "Description": ""
+    }
+  }
+}
