@@ -28,7 +28,7 @@ public class JsonRiskParser {
 		//JSON parser object to parse read file
 		JSONParser jsonParser = new JSONParser();
 
-		String filePath = "C:\\Users\\user\\OneDrive\\Tesi\\risk assignments.json";
+		String filePath = "Risk data/demo.json";
 		
 		try (FileReader reader = new FileReader(filePath)) {
 			

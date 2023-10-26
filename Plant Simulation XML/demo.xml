@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<process>
+	<task xmlns="Task_1">
+		<Task_name>Inspect_customer_data</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.78333333333332 kWh</Energy_consumption>
+		<Security_measure>OPA for data</Security_measure>
+	</task>
+	<task xmlns="Task_2">
+		<Task_name>Update_customer_information</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.64444444444444 kWh</Energy_consumption>
+		<Security_measure>OPA for data</Security_measure>
+	</task>
+	<task xmlns="Task_3">
+		<Task_name>Apply_discount</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.64444444444444 kWh</Energy_consumption>
+		<Security_measure>OPA for data</Security_measure>
+	</task>
+	<task xmlns="Task_4">
+		<Task_name>Process_request</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.78333333333332 kWh</Energy_consumption>
+		<Security_measure>AES</Security_measure>
+	</task>
+	<task xmlns="Task_5">
+		<Task_name>Update_analitical_data</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.78333333333332 kWh</Energy_consumption>
+		<Security_measure>OPA for data</Security_measure>
+	</task>
+	<task xmlns="Task_6">
+		<Task_name>Prepare_package</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.78333333333332 kWh</Energy_consumption>
+		<Security_measure>AES</Security_measure>
+	</task>
+	<task xmlns="Task_7">
+		<Task_name>Send_package</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.78333333333332 kWh</Energy_consumption>
+		<Security_measure>OPA for data</Security_measure>
+	</task>
+	<task xmlns="Task_8">
+		<Task_name>Control access</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.78333333333332 kWh</Energy_consumption>
+		<Security_measure>OPA for function access</Security_measure>
+	</task>
+	<task xmlns="Task_9">
+		<Task_name>GDPR compliance check</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.78333333333332 kWh</Energy_consumption>
+		<Security_measure>Data Loss Prevention</Security_measure>
+	</task>
+	<task xmlns="Task_10">
+		<Task_name>Prevent legal impacts</Task_name>
+		<Description>The description of the task goes here</Description>
+		<Energy_consumption>2.78333333333332 kWh</Energy_consumption>
+		<Security_measure>Secure Access Service Edge</Security_measure>
+	</task>
+	<Total xmlns="Total_consumption">
+		<Description>This is the total energy consumption of the tasks</Description>
+		<Consumption>19.2 kWh</Consumption>
+	</Total>
+</process>

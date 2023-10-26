@@ -29,7 +29,7 @@ public class XmlParser {
 	 */
 	public void start(GoalModel goalModel) {
 		
-		String filePath = "C:\\Users\\user\\OneDrive\\Tesi\\SimPlant_Reports\\XMLReport.xml";
+		String filePath = "Plant Simulation XML/demo.xml";
 		
 		// Instantiate the Factory
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();

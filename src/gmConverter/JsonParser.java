@@ -35,7 +35,7 @@ public class JsonParser {
     	//JSON parser object to parse read file
     	JSONParser jsonParser = new JSONParser();
     	
-    	String filePath = "C:\\Users\\user\\OneDrive\\Tesi\\piStar gm mod.json";
+    	String filePath = "Goal models/demo.json";
     	
     	try (FileReader reader = new FileReader(filePath)) {
     		
