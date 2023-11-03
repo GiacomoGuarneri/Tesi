@@ -23,6 +23,17 @@ public class ConflictChecker {
 	 * @param kb
 	 */
 	public void start(GoalModel goalModel, GmKnowledgeBase kb) {
+		
+		//ANSI escape codes to color the output
+		final String ANSI_RESET = "\u001B[0m";
+//		final String ANSI_BLACK = "\u001B[30m";
+		final String ANSI_RED = "\u001B[31m";
+//		final String ANSI_GREEN = "\u001B[32m";
+		final String ANSI_YELLOW = "\u001B[33m";
+//		final String ANSI_BLUE = "\u001B[34m";
+//		final String ANSI_PURPLE = "\u001B[35m";
+		final String ANSI_CYAN = "\u001B[36m";
+//		final String ANSI_WHITE = "\u001B[37m";
 
 		for (Cell<String, String, String> cell : kb.getKnowledgeBase().cellSet()) { // for each entry in kb
 			
@@ -80,7 +91,7 @@ public class ConflictChecker {
 								}
 							}
 						}
-						System.out.println("Conflict noted! ( " + smName + " and " + wfpName + " are connected to the same goal " + conflictingGoalName + " in actor " + conflictingGoalActor + " )");
+						System.out.println(ANSI_RED + "Conflict noted!" + ANSI_RESET + " (" + smName + " and " + wfpName + " are connected to the same goal " + ANSI_YELLOW + conflictingGoalName + ANSI_RESET + " in actor " + ANSI_CYAN + conflictingGoalActor + ANSI_RESET + ")");
 						System.out.println();
 					}
 				}

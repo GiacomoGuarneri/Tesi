@@ -66,8 +66,9 @@ public class Client {
 		System.out.println();	
 		
 		GmKnowledgeBase knowledgeBase = new GmKnowledgeBase();
-		knowledgeBase.putEntry("AES", "wfp1", null);
-		knowledgeBase.putEntry("AES", "wfp2", null);
+		knowledgeBase.putEntry("SSL/TLS", "Environment to task - pull", "Heartbleed vulnerability");
+		knowledgeBase.putEntry("ZTNA", "Stateful reallocation", "Possible unauthorized accesses");
+		knowledgeBase.putEntry("DNS", "Transient trigger", "NXNSAttack");
 		
 		KnowledgeBaseUtility kbUtility = new KnowledgeBaseUtility();
 		kbUtility.printKB(knowledgeBase);
