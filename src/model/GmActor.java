@@ -5,40 +5,22 @@ import java.util.ArrayList;
 /**
  * This class represents an Actor and its scope represented by the tree of goals starting from the rootNode
  */
-public class GmActor {
-	private String id;
-	private String description;
-	private GmGoal rootNode;
+public class GmActor extends GmComponent{
+	private ArrayList<GmGoal> rootNodes;
 	private ArrayList<GmGoal> goals;
 	
 	public GmActor(String id, String description) {
-		this.id = id;
-		this.description = description;
+		super(id, description);
+		this.rootNodes = new ArrayList<GmGoal>();
 		this.goals = new ArrayList<GmGoal>();
 	}
 	
-	public String getId() {
-		return id;
-	}
-	
-	public void setId(String id) {
-		this.id = id;
-	}
-
-	public String getDescription() {
-		return description;
-	}
-
-	public void setDescription(String description) {
-		this.description = description;
-	}
-
-	public GmGoal getRootNode() {
-		return rootNode;
+	public ArrayList<GmGoal> getRootNodes() {
+		return rootNodes;
 	}
 
 	public void setRootNode(GmGoal rootNode) {
-		this.rootNode = rootNode;
+		this.rootNodes.add(rootNode);
 	}
 
 	@Override
@@ -54,7 +36,7 @@ public class GmActor {
 		final String ANSI_CYAN = "\u001B[36m";
 //		final String ANSI_WHITE = "\u001B[37m";
 		
-		return ANSI_CYAN + this.description + ANSI_RESET;
+		return ANSI_CYAN + super.getDescription() + ANSI_RESET;
 	}
 
 	public ArrayList<GmGoal> getGoals() {

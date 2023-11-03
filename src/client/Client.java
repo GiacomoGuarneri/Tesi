@@ -12,9 +12,13 @@ import gmPropagation.MeasureExcluder;
 import gmPropagation.RiskPropagation;
 import model.GmKnowledgeBase;
 import model.GoalModel;
+import utilityPrinters.ActorsEnergyPrinter;
 import utilityPrinters.AssetEnergyPrinter;
+import utilityPrinters.AssetRiskPrinter;
 import utilityPrinters.GoalEnergyPrinter;
 import utilityPrinters.ModelPrinter;
+import utilityPrinters.SmEnergyPrinter;
+import utilityPrinters.WfpEnergyPrinter;
 
 /**
  * This is the main class of the program and the starting point
@@ -26,7 +30,11 @@ public class Client {
 		GoalModel goalModel = new GoalModel();
 		ModelPrinter modelPrinter = new ModelPrinter();
 		GoalEnergyPrinter goalEnergyPrinter = new GoalEnergyPrinter();
+		ActorsEnergyPrinter actorsEnergyPrinter = new ActorsEnergyPrinter();
+		SmEnergyPrinter smEnergyPrinter = new SmEnergyPrinter();
+		WfpEnergyPrinter wfpEnergyPrinter = new WfpEnergyPrinter();
 		AssetEnergyPrinter assetEnergyPrinter = new AssetEnergyPrinter();
+		AssetRiskPrinter assetRiskPrinter = new AssetRiskPrinter();
 		Scanner scanner = new Scanner(System.in);
 		
 		JsonParser jsonParser = new JsonParser();
@@ -117,11 +125,39 @@ public class Client {
 		goalEnergyPrinter.printGoalsByEnergyDesc(goalModel);
 		
 		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("----------------------------ENERGY PER ACTORS ANALYSIS---------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();
+		
+		actorsEnergyPrinter.printActorsByEnergyDesc(goalModel);
+		
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("------------------------ENERGY PER SECURITY MEASURE ANALYSIS---------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();
+		
+		smEnergyPrinter.printSmByEnergyDesc(goalModel);
+		
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("------------------------ENERGY PER WORKFLOW PATTERNS ANALYSIS--------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();
+		
+		wfpEnergyPrinter.printWfpByEnergyDesc(goalModel);
+		
+		System.out.println("---------------------------------------------------------------------------------------");
 		System.out.println("-----------------------------ENERGY PER ASSET ANALYSIS---------------------------------");
 		System.out.println("---------------------------------------------------------------------------------------");
 		System.out.println();
 		
 		assetEnergyPrinter.printAssetsByEnergyDesc(goalModel);
+		
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("-------------------------------RISK PER ASSET ANALYSIS---------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();
+		
+		assetRiskPrinter.printAssetsByRiskDesc(goalModel);
 		
 	}
 	

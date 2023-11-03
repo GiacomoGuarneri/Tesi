@@ -64,12 +64,6 @@ public class JsonParser {
     		actors = (JSONArray) jsonObj.get("actors");
     		JsonParser.actorsRoutine(actors, goalModel);
     		
-    		// Sets the root node of actors which is always the first goal parsed for that actor
-    		for (GmActor actor : goalModel.getActorsArray()) {
-    			GmGoal rootToSet = actor.getGoals().get(0);
-    			actor.setRootNode(rootToSet);
-    		}
-    		
     		//debug separator
     		//System.out.println("-------------------------------------------------------------------------------------------");
     		//System.out.println();
@@ -87,6 +81,18 @@ public class JsonParser {
     		JSONArray links = new JSONArray();
     		links = (JSONArray) jsonObj.get("links");
     		JsonParser.getLinksInfo(links, goalModel);
+    		
+    		// Sets the root nodes of actors which are the goals in an actor the participate in AndRefinement only as Target, never as Source
+    		// TODO as actor can have multiple trees with multiple root nodes
+    		for (GmActor actor : goalModel.getActorsArray()) {
+//    			GmGoal rootToSet = actor.getGoals().get(0);
+//    			actor.setRootNode(rootToSet);
+    			for (GmGoal goal : actor.getGoals()) {
+    				if (goal.isRoot()) {
+    					actor.setRootNode(goal);
+    				}
+    			}
+    		}
     		
     	} catch (FileNotFoundException e) {
 			// Auto-generated catch block
@@ -325,4 +331,5 @@ public class JsonParser {
 			}
     	}
     }
+    
 }

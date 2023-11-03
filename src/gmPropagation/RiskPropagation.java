@@ -38,16 +38,19 @@ public class RiskPropagation implements PropagationPolicy {
 		switch (choice) {
 			case 1:
 				System.out.println("You have selected Median policy");
+				System.out.println();
 				scanner.close();
 				medianPropagation(goalModel, toExclude);
 				break;
 			case 2:
 				System.out.println("You have selected Max policy");
+				System.out.println();
 				scanner.close();
 				maxPropagation(goalModel, toExclude);
 				break;
 			case 3:
 				System.out.println("You have selected Average policy");
+				System.out.println();
 				scanner.close();
 				averagePropagation(goalModel, toExclude);
 				break;

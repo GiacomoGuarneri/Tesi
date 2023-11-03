@@ -7,23 +7,23 @@ import model.GmAsset;
 import model.GoalModel;
 
 /**
- * This class is devoted to the asset energy consumption analysis
+ * This class is devoted to the assets residual risk analysis
  */
-public class AssetEnergyPrinter {
-
+public class AssetRiskPrinter {
+	
 	/**
-	 * Prints assets ordered by energy consumption in descending order
+	 * Prints assets ordered by residual risk in descending order
 	 * @param goalModel
 	 */
-	public void printAssetsByEnergyDesc (GoalModel goalModel) {
+	public void printAssetsByRiskDesc (GoalModel goalModel) {
 		//First I group all the assets in the model in a single array
 		ArrayList<GmAsset> totalAssets = new ArrayList<GmAsset>();
 		for (GmAsset asset : goalModel.getAssetArray()) {
 			totalAssets.add(asset);
 		}
 		
-		//Ordering assets by energy descending
-		Collections.sort(totalAssets, (a1, a2) -> Float.compare(a2.getEnergyConsumption(), a1.getEnergyConsumption()));
+		//Ordering assets by residual risk descending
+		Collections.sort(totalAssets, (a1, a2) -> Float.compare(a2.getResidualRisk(), a1.getResidualRisk()));
 		
 		//ANSI escape codes to color the output
 		final String ANSI_RESET = "\u001B[0m";
@@ -36,11 +36,11 @@ public class AssetEnergyPrinter {
 		final String ANSI_CYAN = "\u001B[36m";
 //		final String ANSI_WHITE = "\u001B[37m";
 		
-		System.out.println("Assets ordered by energy consumption DESCENDING");
+		System.out.println("Assets ordered by residual risk DESCENDING");
 		System.out.println();
 		
 		for (GmAsset asset : totalAssets) {
-			System.out.println("Asset: " + ANSI_CYAN + asset.getDescription() + ANSI_RESET + " with energy consumption of " + ANSI_YELLOW + asset.getEnergyConsumption() + ANSI_RESET);
+			System.out.println("Asset: " + ANSI_CYAN + asset.getDescription() + ANSI_RESET + " with residual risk of " + ANSI_YELLOW + asset.getEnergyConsumption() + ANSI_RESET);
 		}
 		
 		System.out.println();

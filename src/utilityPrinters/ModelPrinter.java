@@ -20,7 +20,10 @@ public class ModelPrinter {
 		Function<GmGoal, List<GmGoal>> getChildrenFunc = node -> node.getChildren();
 		for (GmActor actor : goalModel.getActorsArray()) {
 			System.out.println(actor.toString());
-			printTree("", actor.getRootNode(), getChildrenFunc, true);
+			//printTree("", actor.getRootNode(), getChildrenFunc, true);
+			for (GmGoal root : actor.getRootNodes()) {
+				printTree("", root, getChildrenFunc, true);
+			}
 			System.out.println();
 		}
 	}
