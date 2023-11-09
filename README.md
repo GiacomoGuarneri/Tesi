@@ -1,7 +1,7 @@
 
 # Energy and Risk analysis tool for goal models
 
-This project is the implementation tool of the thesis "name_goes_here". It provides support to the propagation of energy and risk data of security measures and workflow patterns over a goal model representing security policies.
+This project is the implementation tool of my thesis project. It provides support to the propagation of energy and risk data of security measures and workflow patterns over a goal model representing security policies.
 
 
 ## Requirements
