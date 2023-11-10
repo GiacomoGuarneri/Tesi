@@ -14,6 +14,16 @@ import model.GmKnowledgeBase;
  * This class offers utility functions related to knowledge base
  */
 public class KnowledgeBaseUtility {
+	
+	/**
+	 * In this method are to be specified the entries to be added to the KB
+	 * @param knowledgeBase
+	 */
+	public void setUpKnowledgeBase(GmKnowledgeBase knowledgeBase) {
+		knowledgeBase.putEntry("SSL/TLS", "Environment to task - pull", "Heartbleed vulnerability");
+		knowledgeBase.putEntry("ZTNA", "Stateful reallocation", "Possible unauthorized accesses");
+		knowledgeBase.putEntry("DNS", "Transient trigger", "NXNSAttack");
+	}
 
 	/**
 	 * Prints the KB

@@ -28,6 +28,7 @@ public class Client {
 	public static void main(String[] args) {
 		
 		GoalModel goalModel = new GoalModel();
+		GmKnowledgeBase knowledgeBase = new GmKnowledgeBase();
 		ModelPrinter modelPrinter = new ModelPrinter();
 		GoalEnergyPrinter goalEnergyPrinter = new GoalEnergyPrinter();
 		ActorsEnergyPrinter actorsEnergyPrinter = new ActorsEnergyPrinter();
@@ -65,12 +66,8 @@ public class Client {
 		System.out.println("---------------------------------------------------------------------------------------");
 		System.out.println();	
 		
-		GmKnowledgeBase knowledgeBase = new GmKnowledgeBase();
-		knowledgeBase.putEntry("SSL/TLS", "Environment to task - pull", "Heartbleed vulnerability");
-		knowledgeBase.putEntry("ZTNA", "Stateful reallocation", "Possible unauthorized accesses");
-		knowledgeBase.putEntry("DNS", "Transient trigger", "NXNSAttack");
-		
 		KnowledgeBaseUtility kbUtility = new KnowledgeBaseUtility();
+		kbUtility.setUpKnowledgeBase(knowledgeBase);
 		kbUtility.printKB(knowledgeBase);
 		
 		//If you want to serialize kb or deserialize it you can do it here
