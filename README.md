@@ -9,8 +9,8 @@ This project is the implementation tool of my thesis project. It provides suppor
 The repository can be cloned in your IDE, but before being able to use it some requirements need to be met:
 
 - Java JDK 20 can be downloaded at https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html
-- json-simple jar can be downloaded at https://code.google.com/archive/p/json-simple/downloads
-- guava jar can be downloaded at https://repo1.maven.org/maven2/com/google/guava/guava/32.1.2-jre/
+- json-simple-1.1.jar library can be downloaded at https://code.google.com/archive/p/json-simple/downloads
+- guava-32.1.2-jre.jar library can be downloaded at https://repo1.maven.org/maven2/com/google/guava/guava/32.1.2-jre/
 
 Before to proceed configuring the IDE, the downloaded JDK needs to be installed on the system. Installation support can be found at https://docs.oracle.com/en/java/javase/20/install/installation-jdk-microsoft-windows-platforms.html#GUID-A7E27B90-A28D-4237-9383-A58B416071CA.
 
@@ -78,7 +78,7 @@ String filePath = "Plant Simulation XML/energy_xml_name.xml";
 ```
 ## Knowledge Base
 
-The Knowledge Base (KB) can be directly modified in the *Client* by hand or by deserializing a previously serialized Table. 
+The Knowledge Base (KB) can be directly modified in the *KnowledgeBaseUtility* class by hand or by deserializing a previously serialized Table. 
 
 Entries of the KB have the following syntax:
 
@@ -87,7 +87,7 @@ knowledgeBase.putEntry("Security measure name", "Workflow Pattern name", "Descri
 ```
 ## Example run
 
-Finally the tool can be runned. First, a graphical representation of the goal model is made:
+Finally the tool can be runned by launching the *Client* class. First, a graphical representation of the goal model is made:
 
 ```
 IT department
