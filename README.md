@@ -21,7 +21,7 @@ To import the two libraries, navigate to the project settings and look for libra
 Once the setup has been performed, you can clone this repository into your project.
 
 
-## Importing the goal model
+## Creation of goal model file
 
 The goal model could be expressed via the online tool piStar that can be found at https://www.cin.ufpe.br/~jhcp/pistar/.
 
@@ -40,7 +40,7 @@ The obtained JSON file can be saved in the *Goal models* directory and in order 
 String filePath = "Goal models/goal_model_name.json";
 ```
  
-## Importing risk data
+## Creation of risk file
 
 Risk data can be imported in a similar way by creating a .json file organized as follows:
 
@@ -55,7 +55,7 @@ The file can be saved in *Risk data* folder and then line 31 of class *JsonRiskP
 ```
 String filePath = "Risk data/risk_data_name.json";
 ```
-## Importing simulation xml
+## Creation of simulation file
 
 The energy data outputted from the simulation software chosen should be organized in a .xml file containing a list of tasks, each comprehending at least the following data:
 - Energy consumption of task
