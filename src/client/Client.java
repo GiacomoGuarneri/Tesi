@@ -2,7 +2,9 @@ package client;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import gmConverter.JsonParser;
+
+import gmConverter.JsonGoalModelExporter;
+import gmConverter.JsonGoalModelParser;
 import gmConverter.JsonRiskParser;
 import gmConverter.KnowledgeBaseUtility;
 import gmConverter.MeasureFromTextToId;
@@ -38,7 +40,7 @@ public class Client {
 		AssetRiskPrinter assetRiskPrinter = new AssetRiskPrinter();
 		Scanner scanner = new Scanner(System.in);
 		
-		JsonParser jsonParser = new JsonParser();
+		JsonGoalModelParser jsonParser = new JsonGoalModelParser();
 		jsonParser.start(goalModel);
 		
 		//System.out.println("-------------------------RISK-----------------------------------");
@@ -156,6 +158,14 @@ public class Client {
 		System.out.println();
 		
 		assetRiskPrinter.printAssetsByRiskDesc(goalModel);
+		
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("------------------------------------JSON EXPORT----------------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();
+		
+		JsonGoalModelExporter jsonGoalModelExporter = new JsonGoalModelExporter();
+		jsonGoalModelExporter.start(goalModel);
 		
 	}
 	

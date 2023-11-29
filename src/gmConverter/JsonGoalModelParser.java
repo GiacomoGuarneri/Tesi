@@ -25,7 +25,7 @@ import model.GoalModel;
 /**
  * This class is responsible of getting out of the gm JSON the info to then create all the necessary objects
  */
-public class JsonParser {
+public class JsonGoalModelParser {
 	/**
 	 * This method starts the json parser
 	 * @param goalModel
@@ -47,22 +47,22 @@ public class JsonParser {
     		// Gets wfp jsonArray
     		JSONArray wfp = new JSONArray();
     		wfp = (JSONArray) jsonObj.get("wfp");
-    		JsonParser.wfpRoutine(wfp, goalModel);
+    		JsonGoalModelParser.wfpRoutine(wfp, goalModel);
     		
     		// Gets sm jsonArray
     		JSONArray sm = new JSONArray();
     		sm = (JSONArray) jsonObj.get("sm");
-    		JsonParser.smRoutine(sm, goalModel);
+    		JsonGoalModelParser.smRoutine(sm, goalModel);
     		
     		// Gets asset jsonArray
     		JSONArray asset = new JSONArray();
     		asset = (JSONArray) jsonObj.get("asset");
-    		JsonParser.assetRoutine(asset, goalModel);
+    		JsonGoalModelParser.assetRoutine(asset, goalModel);
     		
     		// Gets actors jsonArray
     		JSONArray actors = new JSONArray();
     		actors = (JSONArray) jsonObj.get("actors");
-    		JsonParser.actorsRoutine(actors, goalModel);
+    		JsonGoalModelParser.actorsRoutine(actors, goalModel);
     		
     		//debug separator
     		//System.out.println("-------------------------------------------------------------------------------------------");
@@ -71,7 +71,7 @@ public class JsonParser {
     		// Gets relationships jsonArray: it contains relationships PART-OF, PROTECT, ENFORCE, IS-A
     		JSONArray relationships = new JSONArray();
     		relationships = (JSONArray) jsonObj.get("relationships");
-    		JsonParser.getRelationshipInfo(relationships, goalModel);
+    		JsonGoalModelParser.getRelationshipInfo(relationships, goalModel);
     		
     		//debug separator
     		//System.out.println("-------------------------------------------------------------------------------------------");
@@ -80,10 +80,9 @@ public class JsonParser {
     		// Gets links jsonArray: it contains ANDlinks among goals
     		JSONArray links = new JSONArray();
     		links = (JSONArray) jsonObj.get("links");
-    		JsonParser.getLinksInfo(links, goalModel);
+    		JsonGoalModelParser.getLinksInfo(links, goalModel);
     		
     		// Sets the root nodes of actors which are the goals in an actor the participate in AndRefinement only as Target, never as Source
-    		// TODO as actor can have multiple trees with multiple root nodes
     		for (GmActor actor : goalModel.getActorsArray()) {
 //    			GmGoal rootToSet = actor.getGoals().get(0);
 //    			actor.setRootNode(rootToSet);
@@ -212,7 +211,7 @@ public class JsonParser {
 		for (int j=0; j < tempArray.size(); j++) {
 			JSONObject element = new JSONObject();
 			element = (JSONObject) tempArray.get(j);
-			JsonParser.getGoalInfo(element, goalModel, actor);
+			JsonGoalModelParser.getGoalInfo(element, goalModel, actor);
 		}
     }
     
@@ -238,7 +237,7 @@ public class JsonParser {
 			GmActor actor = new GmActor(actorId, actorText);
 			goalModel.getActorsArray().add(actor);
 			
-			JsonParser.getGoalInfoFromActor(temp, goalModel, actor);    				
+			JsonGoalModelParser.getGoalInfoFromActor(temp, goalModel, actor);    				
 			
 		}
     }

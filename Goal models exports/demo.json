@@ -1,0 +1,318 @@
+{
+  "wfp": [],
+  "actors": [
+    {
+      "description": "IT department",
+      "id": "aac0e443-5442-4704-b6fc-a8803349e976",
+      "energy": 8.35,
+      "goals": [
+        {
+          "description": "Standards compliance",
+          "id": "abd2b659-8835-41fa-a233-f4ab95a338f5",
+          "residual_risk": 1.25,
+          "energy": 8.35
+        },
+        {
+          "description": "ISO/IEC 27001 compliance",
+          "id": "f4974cd7-170e-42e8-af5a-14526e04cdb0",
+          "residual_risk": 2.5,
+          "energy": 8.35
+        },
+        {
+          "description": "ISO/IEC 27017 compliance",
+          "id": "7e9fc89c-f371-4d6f-b380-fc92f0055b1b",
+          "residual_risk": 0.0,
+          "energy": 0.0
+        },
+        {
+          "description": "Access control provisioned",
+          "id": "1cd8277f-42d4-42f8-911e-985de6b249bc",
+          "residual_risk": 0.0,
+          "energy": 2.7833333
+        },
+        {
+          "description": "Confidentiality of data",
+          "id": "a21bc013-ab4c-4862-afe2-7d8f569e64bd",
+          "residual_risk": 5.0,
+          "energy": 5.5666666
+        }
+      ]
+    },
+    {
+      "description": "Company",
+      "id": "3905c6ff-202f-4096-aaf2-e944ccd5facb",
+      "energy": 5.5666666,
+      "goals": [
+        {
+          "description": "IT security and data protection",
+          "id": "efff559f-7b2b-4c74-9be5-7ca5f91192f6",
+          "residual_risk": 0.5833333,
+          "energy": 5.5666666
+        },
+        {
+          "description": "Prevent impacts",
+          "id": "d7ecc7a7-c6d8-47f5-9bba-00470fc69e67",
+          "residual_risk": 1.0,
+          "energy": 2.7833333
+        },
+        {
+          "description": "Avoid modifications after deployment",
+          "id": "6d221bfb-f568-45ba-9e39-0ec83e5ee9c2",
+          "residual_risk": 0.0,
+          "energy": 0.0
+        },
+        {
+          "description": "Compliance",
+          "id": "2c2ae005-9833-4ed4-b720-7e153def8ae3",
+          "residual_risk": 0.75,
+          "energy": 2.7833333
+        },
+        {
+          "description": "Prevent legal impacts",
+          "id": "4937109c-f71d-42d5-b27b-d25b5883957e",
+          "residual_risk": 2.0,
+          "energy": 2.7833333
+        },
+        {
+          "description": "Prevent image impacts",
+          "id": "dc3fd60e-50eb-4396-a836-ea0efd118cf4",
+          "residual_risk": 0.0,
+          "energy": 0.0
+        },
+        {
+          "description": "Norms compliance",
+          "id": "077e97ba-ce6f-482c-8b8b-5d236eae292a",
+          "residual_risk": 1.5,
+          "energy": 2.7833333
+        },
+        {
+          "description": "Standard compliance",
+          "id": "dc44d79a-aadf-4041-a710-9d1a34c0f043",
+          "residual_risk": 0.0,
+          "energy": 0.0
+        },
+        {
+          "description": "GDPR compliance",
+          "id": "61702a82-0741-478e-a8c1-2f0e96a35adc",
+          "residual_risk": 3.0,
+          "energy": 2.7833333
+        },
+        {
+          "description": "Digital PA laws",
+          "id": "29cf2c63-ae98-4ea8-a61d-b20f37af7629",
+          "residual_risk": 0.0,
+          "energy": 0.0
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "58f862cf-1e83-475f-bf32-3e448210a4a5",
+      "source": "3905c6ff-202f-4096-aaf2-e944ccd5facb",
+      "type": "delegation",
+      "target": "aac0e443-5442-4704-b6fc-a8803349e976"
+    },
+    {
+      "id": "88a59b5e-f7ec-4e12-afbd-bf57cb5cc097",
+      "source": "61702a82-0741-478e-a8c1-2f0e96a35adc",
+      "type": "protect",
+      "target": "013623dc-6dc4-4711-8e95-423258c741d7"
+    },
+    {
+      "id": "434c263e-fa63-4f54-b3e8-18bb6e6f6dc3",
+      "source": "a21bc013-ab4c-4862-afe2-7d8f569e64bd",
+      "type": "enforce",
+      "target": "db1d42ca-641b-4b0b-a89b-a03230645c15"
+    },
+    {
+      "id": "e6b5aae6-1cf7-4791-822a-666ec260f89e",
+      "source": "1cd8277f-42d4-42f8-911e-985de6b249bc",
+      "type": "enforce",
+      "target": "abf16f24-d5ac-4d7b-ae1e-1144999a31cc"
+    },
+    {
+      "id": "4dd21eb2-b2f7-4fed-8d67-68b242989608",
+      "source": "a21bc013-ab4c-4862-afe2-7d8f569e64bd",
+      "type": "protect",
+      "target": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684"
+    },
+    {
+      "id": "f4e427df-2e35-4cc3-b6de-ddee49926a52",
+      "source": "6ca92b8b-5c70-46cf-806a-5bf38f691c5f",
+      "type": "is-a",
+      "target": "abf16f24-d5ac-4d7b-ae1e-1144999a31cc"
+    },
+    {
+      "id": "56a12f2b-e07e-425e-b2e7-75fe622568df",
+      "source": "6ca92b8b-5c70-46cf-806a-5bf38f691c5f",
+      "type": "is-a",
+      "target": "4a1d89a2-77e6-495e-99c1-52478332a93a"
+    },
+    {
+      "id": "3d0d1d1e-85c9-46f1-9688-54489be02b21",
+      "source": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684",
+      "type": "part-of",
+      "target": "013623dc-6dc4-4711-8e95-423258c741d7"
+    },
+    {
+      "id": "0661ebd8-2f04-4b23-a4f3-6161e3f28c9a",
+      "source": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684",
+      "type": "part-of",
+      "target": "dae570d9-4895-4268-8f63-4c5333dee710"
+    },
+    {
+      "id": "a7f84e2d-1c3b-4f9d-96a0-87e5a6c4d831",
+      "source": "61702a82-0741-478e-a8c1-2f0e96a35adc",
+      "type": "enforce",
+      "target": "5b3c7d9f-682a-4e12-8f3b-6a0e38a72d21"
+    },
+    {
+      "id": "6d9a5f1b-8c0e-4737-af63-24b8ac9d52d7",
+      "source": "4937109c-f71d-42d5-b27b-d25b5883957e",
+      "type": "enforce",
+      "target": "8e6f42c1-3d77-4a9a-bf85-9e24db056708"
+    },
+    {
+      "id": "1e4d9c7a-3b2f-4d8e-9a6c-6f8a2e5d1b47",
+      "source": "4937109c-f71d-42d5-b27b-d25b5883957e",
+      "type": "protect",
+      "target": "3a8b4c9e-2f1d-47e0-8d6a-1f7c5e9a82d6"
+    }
+  ],
+  "sm": [
+    {
+      "description": "Open Policy Agent",
+      "id": "6ca92b8b-5c70-46cf-806a-5bf38f691c5f",
+      "risk_mitigation_impact": 0.0,
+      "energy": 0.0
+    },
+    {
+      "description": "AES",
+      "id": "db1d42ca-641b-4b0b-a89b-a03230645c15",
+      "risk_mitigation_impact": 2.0,
+      "energy": 5.5666666
+    },
+    {
+      "description": "OPA for function access",
+      "id": "abf16f24-d5ac-4d7b-ae1e-1144999a31cc",
+      "risk_mitigation_impact": 1.0,
+      "energy": 2.7833333
+    },
+    {
+      "description": "OPA for data",
+      "id": "4a1d89a2-77e6-495e-99c1-52478332a93a",
+      "risk_mitigation_impact": 0.0,
+      "energy": 13.638887
+    },
+    {
+      "description": "Data Loss Prevention",
+      "id": "5b3c7d9f-682a-4e12-8f3b-6a0e38a72d21",
+      "risk_mitigation_impact": 1.0,
+      "energy": 2.7833333
+    },
+    {
+      "description": "Secure Access Service Edge",
+      "id": "8e6f42c1-3d77-4a9a-bf85-9e24db056708",
+      "risk_mitigation_impact": 3.0,
+      "energy": 2.7833333
+    }
+  ],
+  "asset": [
+    {
+      "inherent_risk": 7.0,
+      "description": "Customer data",
+      "id": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684",
+      "residual_risk": 5.0,
+      "energy": 5.5666666
+    },
+    {
+      "inherent_risk": 4.0,
+      "description": "Personal data",
+      "id": "013623dc-6dc4-4711-8e95-423258c741d7",
+      "residual_risk": 3.0,
+      "energy": 2.7833333
+    },
+    {
+      "inherent_risk": 0.0,
+      "description": "Analytical data",
+      "id": "dae570d9-4895-4268-8f63-4c5333dee710",
+      "residual_risk": 0.0,
+      "energy": 0.0
+    },
+    {
+      "inherent_risk": 5.0,
+      "description": "Credentials",
+      "id": "3a8b4c9e-2f1d-47e0-8d6a-1f7c5e9a82d6",
+      "residual_risk": 2.0,
+      "energy": 2.7833333
+    }
+  ],
+  "and_links": [
+    {
+      "id": "16f43d7c-b470-465b-b1e3-1790e677afee",
+      "source": "d7ecc7a7-c6d8-47f5-9bba-00470fc69e67",
+      "target": "efff559f-7b2b-4c74-9be5-7ca5f91192f6"
+    },
+    {
+      "id": "7c737207-58d9-4e04-b253-0612fee2fe93",
+      "source": "6d221bfb-f568-45ba-9e39-0ec83e5ee9c2",
+      "target": "efff559f-7b2b-4c74-9be5-7ca5f91192f6"
+    },
+    {
+      "id": "f40cd63c-3d1f-4afb-ae48-e420a435eeb2",
+      "source": "2c2ae005-9833-4ed4-b720-7e153def8ae3",
+      "target": "efff559f-7b2b-4c74-9be5-7ca5f91192f6"
+    },
+    {
+      "id": "6c9d454a-2a14-4db9-8cf0-88c8e9906b23",
+      "source": "4937109c-f71d-42d5-b27b-d25b5883957e",
+      "target": "d7ecc7a7-c6d8-47f5-9bba-00470fc69e67"
+    },
+    {
+      "id": "9ce8fed7-063b-4a4a-a33d-b0562a608e5f",
+      "source": "dc3fd60e-50eb-4396-a836-ea0efd118cf4",
+      "target": "d7ecc7a7-c6d8-47f5-9bba-00470fc69e67"
+    },
+    {
+      "id": "eeaaa38f-7ce6-42d0-8146-096ae04c36db",
+      "source": "077e97ba-ce6f-482c-8b8b-5d236eae292a",
+      "target": "2c2ae005-9833-4ed4-b720-7e153def8ae3"
+    },
+    {
+      "id": "78ba79f3-a231-414e-83a6-33202a4a3887",
+      "source": "dc44d79a-aadf-4041-a710-9d1a34c0f043",
+      "target": "2c2ae005-9833-4ed4-b720-7e153def8ae3"
+    },
+    {
+      "id": "22177eae-f66c-497e-b822-df7c77df532b",
+      "source": "61702a82-0741-478e-a8c1-2f0e96a35adc",
+      "target": "077e97ba-ce6f-482c-8b8b-5d236eae292a"
+    },
+    {
+      "id": "a8338425-8e9e-49fd-8fab-aebff45ba544",
+      "source": "29cf2c63-ae98-4ea8-a61d-b20f37af7629",
+      "target": "077e97ba-ce6f-482c-8b8b-5d236eae292a"
+    },
+    {
+      "id": "dd1da3b6-00b6-4114-8869-d3df7f7ca825",
+      "source": "f4974cd7-170e-42e8-af5a-14526e04cdb0",
+      "target": "abd2b659-8835-41fa-a233-f4ab95a338f5"
+    },
+    {
+      "id": "2c40f44d-9d23-41e3-be3c-ec77d412be24",
+      "source": "7e9fc89c-f371-4d6f-b380-fc92f0055b1b",
+      "target": "abd2b659-8835-41fa-a233-f4ab95a338f5"
+    },
+    {
+      "id": "be7f11ae-3320-4ed0-a153-ddd95f6a9fbf",
+      "source": "1cd8277f-42d4-42f8-911e-985de6b249bc",
+      "target": "f4974cd7-170e-42e8-af5a-14526e04cdb0"
+    },
+    {
+      "id": "9667a5b7-fb13-4efb-947c-4337be04f61a",
+      "source": "a21bc013-ab4c-4862-afe2-7d8f569e64bd",
+      "target": "f4974cd7-170e-42e8-af5a-14526e04cdb0"
+    }
+  ]
+}
