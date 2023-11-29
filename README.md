@@ -11,6 +11,7 @@ The repository can be cloned in your IDE, but before being able to use it some r
 - Java JDK 20 can be downloaded at https://www.oracle.com/java/technologies/javase/jdk20-archive-downloads.html
 - json-simple-1.1.jar library can be downloaded at https://code.google.com/archive/p/json-simple/downloads
 - guava-32.1.2-jre.jar library can be downloaded at https://repo1.maven.org/maven2/com/google/guava/guava/32.1.2-jre/
+- gson-2.8.6.jar library can be downloaded at https://repo1.maven.org/maven2/com/google/code/gson/gson/2.8.6/
 
 Before to proceed configuring the IDE, the downloaded JDK needs to be installed on the system. Installation support can be found at https://docs.oracle.com/en/java/javase/20/install/installation-jdk-microsoft-windows-platforms.html#GUID-A7E27B90-A28D-4237-9383-A58B416071CA.
 
