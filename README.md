@@ -86,6 +86,10 @@ Entries of the KB have the following syntax:
 ```
 knowledgeBase.putEntry("Security measure name", "Workflow Pattern name", "Description of the conflict");
 ```
+## Goal model export
+
+The updated goal model can then be exported as JSON file by modifying line 30 of class *JsonGoalModelExporter*. Line 33 must always specify the path of the original goal model given in input to the tool.
+
 ## Example run
 
 Finally the tool can be runned by launching the *Client* class. First, a graphical representation of the goal model is made:
