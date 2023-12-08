@@ -65,6 +65,7 @@ public class JsonGoalModelExporter {
 			file.close();
 			
 			System.out.println("Goal model has been exported to location: " + filePath);
+			System.out.println();
 			
 		} catch (IOException e) {
 			// Auto-generated catch block

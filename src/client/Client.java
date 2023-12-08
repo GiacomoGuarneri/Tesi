@@ -3,6 +3,7 @@ package client;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import gmConverter.JsonAnalysisExporter;
 import gmConverter.JsonGoalModelExporter;
 import gmConverter.JsonGoalModelParser;
 import gmConverter.JsonRiskParser;
@@ -160,12 +161,20 @@ public class Client {
 		assetRiskPrinter.printAssetsByRiskDesc(goalModel);
 		
 		System.out.println("---------------------------------------------------------------------------------------");
-		System.out.println("------------------------------------JSON EXPORT----------------------------------------");
+		System.out.println("--------------------------------JSON MODEL EXPORT--------------------------------------");
 		System.out.println("---------------------------------------------------------------------------------------");
 		System.out.println();
 		
 		JsonGoalModelExporter jsonGoalModelExporter = new JsonGoalModelExporter();
 		jsonGoalModelExporter.start(goalModel);
+		
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println("------------------------------JSON ANALYSIS EXPORT-------------------------------------");
+		System.out.println("---------------------------------------------------------------------------------------");
+		System.out.println();
+		
+		JsonAnalysisExporter jsonAnalysisExporter = new JsonAnalysisExporter();
+		jsonAnalysisExporter.start(goalModel);
 		
 	}
 	
