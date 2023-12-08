@@ -1,0 +1,168 @@
+{
+  "wfpEnergyDescending": [],
+  "smEnergyDescending": [
+    {
+      "description": "OPA for data",
+      "id": "4a1d89a2-77e6-495e-99c1-52478332a93a",
+      "energy": 13.638887
+    },
+    {
+      "description": "AES",
+      "id": "db1d42ca-641b-4b0b-a89b-a03230645c15",
+      "energy": 5.5666666
+    },
+    {
+      "description": "OPA for function access",
+      "id": "abf16f24-d5ac-4d7b-ae1e-1144999a31cc",
+      "energy": 2.7833333
+    },
+    {
+      "description": "Data Loss Prevention",
+      "id": "5b3c7d9f-682a-4e12-8f3b-6a0e38a72d21",
+      "energy": 2.7833333
+    },
+    {
+      "description": "Secure Access Service Edge",
+      "id": "8e6f42c1-3d77-4a9a-bf85-9e24db056708",
+      "energy": 2.7833333
+    },
+    {
+      "description": "Open Policy Agent",
+      "id": "6ca92b8b-5c70-46cf-806a-5bf38f691c5f",
+      "energy": 0.0
+    }
+  ],
+  "actorsEnergyDescending": [
+    {
+      "description": "IT department",
+      "id": "aac0e443-5442-4704-b6fc-a8803349e976",
+      "energy": 8.35
+    },
+    {
+      "description": "Company",
+      "id": "3905c6ff-202f-4096-aaf2-e944ccd5facb",
+      "energy": 5.5666666
+    }
+  ],
+  "assetRiskDescending": [
+    {
+      "description": "Customer data",
+      "id": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684",
+      "residual_risk": 5.0
+    },
+    {
+      "description": "Personal data",
+      "id": "013623dc-6dc4-4711-8e95-423258c741d7",
+      "residual_risk": 3.0
+    },
+    {
+      "description": "Credentials",
+      "id": "3a8b4c9e-2f1d-47e0-8d6a-1f7c5e9a82d6",
+      "residual_risk": 2.0
+    },
+    {
+      "description": "Analytical data",
+      "id": "dae570d9-4895-4268-8f63-4c5333dee710",
+      "residual_risk": 0.0
+    }
+  ],
+  "assetEnergyDescending": [
+    {
+      "description": "Customer data",
+      "id": "b1d4659b-a1b0-458a-b2de-e8ef7daa4684",
+      "energy": 5.5666666
+    },
+    {
+      "description": "Personal data",
+      "id": "013623dc-6dc4-4711-8e95-423258c741d7",
+      "energy": 2.7833333
+    },
+    {
+      "description": "Credentials",
+      "id": "3a8b4c9e-2f1d-47e0-8d6a-1f7c5e9a82d6",
+      "energy": 2.7833333
+    },
+    {
+      "description": "Analytical data",
+      "id": "dae570d9-4895-4268-8f63-4c5333dee710",
+      "energy": 0.0
+    }
+  ],
+  "goalsEnergyDescending": [
+    {
+      "description": "Standards compliance",
+      "id": "abd2b659-8835-41fa-a233-f4ab95a338f5",
+      "energy": 8.35
+    },
+    {
+      "description": "ISO/IEC 27001 compliance",
+      "id": "f4974cd7-170e-42e8-af5a-14526e04cdb0",
+      "energy": 8.35
+    },
+    {
+      "description": "Confidentiality of data",
+      "id": "a21bc013-ab4c-4862-afe2-7d8f569e64bd",
+      "energy": 5.5666666
+    },
+    {
+      "description": "IT security and data protection",
+      "id": "efff559f-7b2b-4c74-9be5-7ca5f91192f6",
+      "energy": 5.5666666
+    },
+    {
+      "description": "Access control provisioned",
+      "id": "1cd8277f-42d4-42f8-911e-985de6b249bc",
+      "energy": 2.7833333
+    },
+    {
+      "description": "Prevent impacts",
+      "id": "d7ecc7a7-c6d8-47f5-9bba-00470fc69e67",
+      "energy": 2.7833333
+    },
+    {
+      "description": "Compliance",
+      "id": "2c2ae005-9833-4ed4-b720-7e153def8ae3",
+      "energy": 2.7833333
+    },
+    {
+      "description": "Prevent legal impacts",
+      "id": "4937109c-f71d-42d5-b27b-d25b5883957e",
+      "energy": 2.7833333
+    },
+    {
+      "description": "Norms compliance",
+      "id": "077e97ba-ce6f-482c-8b8b-5d236eae292a",
+      "energy": 2.7833333
+    },
+    {
+      "description": "GDPR compliance",
+      "id": "61702a82-0741-478e-a8c1-2f0e96a35adc",
+      "energy": 2.7833333
+    },
+    {
+      "description": "ISO/IEC 27017 compliance",
+      "id": "7e9fc89c-f371-4d6f-b380-fc92f0055b1b",
+      "energy": 0.0
+    },
+    {
+      "description": "Avoid modifications after deployment",
+      "id": "6d221bfb-f568-45ba-9e39-0ec83e5ee9c2",
+      "energy": 0.0
+    },
+    {
+      "description": "Prevent image impacts",
+      "id": "dc3fd60e-50eb-4396-a836-ea0efd118cf4",
+      "energy": 0.0
+    },
+    {
+      "description": "Standard compliance",
+      "id": "dc44d79a-aadf-4041-a710-9d1a34c0f043",
+      "energy": 0.0
+    },
+    {
+      "description": "Digital PA laws",
+      "id": "29cf2c63-ae98-4ea8-a61d-b20f37af7629",
+      "energy": 0.0
+    }
+  ]
+}
