@@ -90,6 +90,10 @@ knowledgeBase.putEntry("Security measure name", "Workflow Pattern name", "Descri
 
 The updated goal model can then be exported as JSON file by modifying line 30 of class *JsonGoalModelExporter*. Line 33 must always specify the path of the original goal model given in input to the tool.
 
+## Analysis export
+
+The analysis provided by the tool can then be exported as JSON file by modifying line 33 of class *JsonAnalysisExporter*.
+
 ## Example run
 
 Finally the tool can be runned by launching the *Client* class. First, a graphical representation of the goal model is made:
